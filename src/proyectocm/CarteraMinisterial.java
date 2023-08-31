@@ -51,7 +51,7 @@ class CarteraMinisterial {
         for (int i= 0; i < funcionarios.size(); i++) {
             System.out.print((i+1) + ". " + funcionarios.get(i).getNombre());
             System.out.print(" Cargo: " + funcionarios.get(i).getCargo());
-            System.out.println(" ID: " + funcionarios.get(i).getID());
+            System.out.println( " ID: " + funcionarios.get(i).getID());
         }
     }
     public void agregarFuncionario(String nombreFuncionario, String cargo, String id) {
@@ -64,6 +64,7 @@ class CarteraMinisterial {
             System.out.println("Funcionario agregado: " + funcionariosMapa.get(id).getNombre());
         } 
     }
+    
         public Funcionario buscarFuncionario (String id){
         if(funcionariosMapa.containsKey(id)) {
                 System.out.println("Funcionario encontrado: " + funcionariosMapa.get(id).getNombre());
@@ -73,6 +74,16 @@ class CarteraMinisterial {
             System.out.println("Funcionario no encontrado");
         return null;
     }
+
+    public void agregarFuncionario(Funcionario funcionario){
+        String idFuncionario = funcionario.getID();
+       if(funcionariosMapa.containsKey(idFuncionario)){
+       System.out.println("\nFuncionario ya existente");
+       }else{
+        funcionariosMapa.put(idFuncionario, funcionario);
+        funcionarios.add(funcionario);
+       }
+   }
         
         public Funcionario eliminarFuncionario (String id){
             Funcionario funcionarioEliminado = buscarFuncionario(id);
