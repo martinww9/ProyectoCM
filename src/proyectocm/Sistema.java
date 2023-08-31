@@ -57,10 +57,26 @@ class Sistema {
             }
         }
     }
+    //Sobre carga de metodo
+      public void agregarCartera(CarteraMinisterial cartera){
+         String nombreCartera = cartera.getNombre();
+        if(carterasMapa.containsKey(nombreCartera)){
+        System.out.println("\nCartera ya existente");
+        }else{
+        carterasMapa.put(nombreCartera,cartera);
+        carteras.add(cartera);
+        }
+    }
+    
+    
         public void agregarCartera(String nombreCartera, String encargadoCartera) {
+        if(carterasMapa.containsKey(nombreCartera)){
+        System.out.println("\nCartera ya existente");
+        }else{
         CarteraMinisterial cartera = new CarteraMinisterial(nombreCartera, encargadoCartera);
         carterasMapa.put(nombreCartera, cartera);
         carteras.add(cartera);
+        }
     }
         public void mostrarCarteras() {
         System.out.println("\nCarteras Ministeriales:");
