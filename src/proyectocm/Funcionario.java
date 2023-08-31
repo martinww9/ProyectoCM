@@ -1,5 +1,5 @@
 package proyectocm;
-//test ricardo
+
 public class Funcionario {
     private String nombre;
     private String cargo;
