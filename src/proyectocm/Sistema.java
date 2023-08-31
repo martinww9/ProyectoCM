@@ -10,8 +10,50 @@ class Sistema {
         carteras = new ArrayList<>();
         scanner = new Scanner(System.in);
         carterasMapa = new HashMap<>();
+        inicializarCarteras();
     }
-
+    private void inicializarCarteras(){
+        CarteraMinisterial cartera1 = new CarteraMinisterial("Salud", "Jose Lopez");
+        CarteraMinisterial cartera2 = new CarteraMinisterial("Educacion", "Maria Perez");
+        CarteraMinisterial cartera3 = new CarteraMinisterial("Bienes nacionales", "Sofia Ramirez");
+        CarteraMinisterial cartera4 = new CarteraMinisterial("Medioambiente", "Carlos Perez");
+        CarteraMinisterial cartera5 = new CarteraMinisterial("Relaciones exteriores", "Pedro Ortiz");
+        CarteraMinisterial cartera6 = new CarteraMinisterial("Defensa nacional", "Andrea Quinteros");
+        CarteraMinisterial cartera7 = new CarteraMinisterial("Hacienda", "Oscar Zamora");
+        CarteraMinisterial cartera8 = new CarteraMinisterial("Agricultura", "Karen Ibañez");
+        CarteraMinisterial cartera9 = new CarteraMinisterial("Mineria", "Camila Wagner");
+        CarteraMinisterial cartera10 = new CarteraMinisterial("Deporte", "Hector Aravena");
+        cartera1.agregarFuncionario("Juan Perez", "Ministro", "12345678-9", 1);
+        cartera2.agregarFuncionario("Maria Perez", "Ministro", "213456789-9", 1);
+        cartera3.agregarFuncionario("Sofia Ramirez", "Ministro", "312456789-9", 1);
+        cartera4.agregarFuncionario("Carlos Perez", "Ministro", "412356789-9", 1);
+        cartera5.agregarFuncionario("Pedro Ortiz", "Ministro", "512346789-9", 1);
+        cartera6.agregarFuncionario("Andrea Quinteros", "Ministro", "612345789-9", 1);
+        cartera7.agregarFuncionario("Oscar Zamora", "Ministro", "712345689-9", 1);
+        cartera8.agregarFuncionario("Karen Ibañez", "Ministro", "812345679-9", 1);
+        cartera9.agregarFuncionario("Camila Wagner", "Ministro", "912345678-9", 1);
+        cartera10.agregarFuncionario("Hector Aravena", "Ministro", "12345678-k", 1);
+        carterasMapa.put("Salud", cartera1);
+        carterasMapa.put("Educacion", cartera2);
+        carterasMapa.put("Bienes nacionales", cartera3);
+        carterasMapa.put("Medioambiente", cartera4);
+        carterasMapa.put("Relaciones exteriores", cartera5);
+        carterasMapa.put("Defensa nacional", cartera6);
+        carterasMapa.put("Hacienda", cartera7);
+        carterasMapa.put("Agricultura", cartera8);
+        carterasMapa.put("Mineria", cartera9);
+        carterasMapa.put("Deporte", cartera10);
+        carteras.add(cartera1);
+        carteras.add(cartera2);
+        carteras.add(cartera3);
+        carteras.add(cartera4);
+        carteras.add(cartera5);
+        carteras.add(cartera6);
+        carteras.add(cartera7);
+        carteras.add(cartera8);
+        carteras.add(cartera9);
+        carteras.add(cartera10);
+    }
     public void mostrarMenu() {
         boolean salir = false;
 
@@ -31,6 +73,7 @@ class Sistema {
             int opcion = scanner.nextInt();
             scanner.nextLine();
             String nombreCartera = "";
+            System.out.println("");
             switch (opcion) {
                 case 1:
                     System.out.print("Ingrese el nombre de la cartera: ");
@@ -113,9 +156,10 @@ class Sistema {
         System.out.println("\nCarteras Ministeriales:");
         for (int i= 0; i < carteras.size(); i++) {
             System.out.println( (i+1) + ". " + carteras.get(i).getNombre());
-            System.out.println("Encargado:");
+            System.out.print("Encargado:");
             System.out.println(" - " + carteras.get(i).getEncargado());
             carteras.get(i).mostrarFuncionarios();
+            System.out.println("");
         }
     }
         

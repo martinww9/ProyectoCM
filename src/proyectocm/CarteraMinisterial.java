@@ -49,7 +49,7 @@ class CarteraMinisterial {
     public void mostrarFuncionarios() {
         System.out.println("Funcionarios:");
         for (int i= 0; i < funcionarios.size(); i++) {
-            System.out.print((i+1) + ". " + funcionarios.get(i).getNombre());
+            System.out.print((i+1) + ") " + funcionarios.get(i).getNombre());
             System.out.print(" Cargo: " + funcionarios.get(i).getCargo());
             System.out.println( " ID: " + funcionarios.get(i).getID());
         }
@@ -63,16 +63,16 @@ class CarteraMinisterial {
             funcionarios.add(funcionario);          
             System.out.println("Funcionario agregado: " + funcionariosMapa.get(id).getNombre());
         } 
-    }
-    
-        public Funcionario buscarFuncionario (String id){
+    }   
+
+    public void agregarFuncionario(String nombreFuncionario, String cargo, String id, int inicializar) {
         if(funcionariosMapa.containsKey(id)) {
-                System.out.println("Funcionario encontrado: " + funcionariosMapa.get(id).getNombre());
-                return funcionariosMapa.get(id);
-        }
-        else
-            System.out.println("Funcionario no encontrado");
-        return null;
+             System.out.print("Funcionario ya esta registrado.");
+        } else{
+            Funcionario funcionario = new Funcionario(nombreFuncionario, cargo, id);
+            funcionariosMapa.put(id, funcionario);
+            funcionarios.add(funcionario);
+        } 
     }
 
     public void agregarFuncionario(Funcionario funcionario){
@@ -84,6 +84,15 @@ class CarteraMinisterial {
         funcionarios.add(funcionario);
        }
    }
+   public Funcionario buscarFuncionario (String id){
+        if(funcionariosMapa.containsKey(id)) {
+                System.out.println("Funcionario encontrado: " + funcionariosMapa.get(id).getNombre());
+                return funcionariosMapa.get(id);
+        }
+        else
+            System.out.println("Funcionario no encontrado");
+        return null;
+    }
         
         public Funcionario eliminarFuncionario (String id){
             Funcionario funcionarioEliminado = buscarFuncionario(id);
