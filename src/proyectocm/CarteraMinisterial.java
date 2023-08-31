@@ -62,5 +62,34 @@ class CarteraMinisterial {
             funcionariosMapa.put(id, funcionario);
             funcionarios.add(funcionario);          
             System.out.println("Funcionario agregado: " + funcionariosMapa.get(id).getNombre());
-        }          
+        } 
     }
+        public Funcionario buscarFuncionario (String id){
+        if(funcionariosMapa.containsKey(id)) {
+                System.out.println("Funcionario encontrado: " + funcionariosMapa.get(id).getNombre());
+                return funcionariosMapa.get(id);
+        }
+        else
+            System.out.println("Funcionario no encontrado");
+        return null;
+    }
+        
+        public Funcionario eliminarFuncionario (String id){
+            Funcionario funcionarioEliminado = buscarFuncionario(id);
+            if(funcionarioEliminado == null) {
+                return null;
+            }
+            
+            funcionariosMapa.remove(id);
+            
+             for (int i = 0; i < funcionarios.size(); i++){
+                 if(funcionarios.get(i).getID().equals(id)) {
+                    funcionarios.remove(i);
+                    break; 
+                 }
+             }
+             System.out.println("Funcionario eliminado con exito");
+             return funcionarioEliminado;
+        }
+    
+}
