@@ -116,10 +116,23 @@ class Sistema {
                     agregarFuncionarioConsola(funcionario, nombreCartera);
                     break;
                 case 7:
-                //Funcion de agregar funcionario
-                break;
+                    System.out.println("Ingrese el nombre de la cartera a la que pertenece el funcionario: ");
+                    nombreCartera = scanner.nextLine();
+                    
+                    System.out.println("Ingrese el ID del funcionario a eliminar: ");
+                    String IDFuncionarioEliminar = scanner.nextLine();
+                    
+                    buscarCartera(nombreCartera).eliminarFuncionario(IDFuncionarioEliminar);
+                    break;
                 case 8:
-                //Funcion de eliminar funcionario
+                    System.out.println("Ingrese el nombre de la cartera a la que pertenece el funcionario: ");
+                    nombreCartera = scanner.nextLine();
+                    
+                    System.out.println("Ingrese el ID del funcionario a buscar: ");
+                    String IDFuncionarioBuscar = scanner.nextLine();
+                    
+                    buscarCartera(nombreCartera).buscarFuncionario(IDFuncionarioBuscar);
+                    break;
                 case 9:
                     System.out.println("Ingrese el nombre de la cartera a la que pertenece el funcionario: ");
                     nombreCartera = scanner.nextLine();
