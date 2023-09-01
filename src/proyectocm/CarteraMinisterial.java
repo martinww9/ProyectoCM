@@ -22,28 +22,12 @@ class CarteraMinisterial {
         this.nombre = nombre;
     }
 
-    public ArrayList<Funcionario> getFuncionarios() {
-        return funcionarios;
-    }
-
-    public void setFuncionarios(ArrayList<Funcionario> funcionarios) {
-        this.funcionarios = funcionarios;
-    }
-
     public String getEncargado() {
         return encargado;
     }
 
     public void setEncargado(String encargado) {
         this.encargado = encargado;
-    }
-
-    public HashMap<String, Funcionario> getFuncionariosMapa() {
-        return funcionariosMapa;
-    }
-
-    public void setFuncionariosMapa(HashMap<String, Funcionario> funcionariosMapa) {
-        this.funcionariosMapa = funcionariosMapa;
     }
     
     public void mostrarFuncionarios() {
@@ -60,20 +44,9 @@ class CarteraMinisterial {
         } else {
             Funcionario funcionario = new Funcionario(nombreFuncionario, cargo, id);
             funcionariosMapa.put(id, funcionario);
-            funcionarios.add(funcionario);          
-            System.out.println("Funcionario agregado: " + funcionariosMapa.get(id).getNombre());
+            funcionarios.add(funcionario);         
         } 
     }   
-
-    public void agregarFuncionario(String nombreFuncionario, String cargo, String id, int inicializar) {
-        if(funcionariosMapa.containsKey(id)) {
-             System.out.print("Funcionario ya esta registrado.");
-        } else{
-            Funcionario funcionario = new Funcionario(nombreFuncionario, cargo, id);
-            funcionariosMapa.put(id, funcionario);
-            funcionarios.add(funcionario);
-        } 
-    }
 
     public void agregarFuncionario(Funcionario funcionario){
         String idFuncionario = funcionario.getID();
@@ -82,6 +55,7 @@ class CarteraMinisterial {
        }else{
         funcionariosMapa.put(idFuncionario, funcionario);
         funcionarios.add(funcionario);
+        System.out.println("Funcionario agregado: " + funcionariosMapa.get(idFuncionario).getNombre());
        }
    }
    public Funcionario buscarFuncionario (String id){

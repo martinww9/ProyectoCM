@@ -23,16 +23,16 @@ class Sistema {
         CarteraMinisterial cartera8 = new CarteraMinisterial("Agricultura", "Karen Ibañez");
         CarteraMinisterial cartera9 = new CarteraMinisterial("Mineria", "Camila Wagner");
         CarteraMinisterial cartera10 = new CarteraMinisterial("Deporte", "Hector Aravena");
-        cartera1.agregarFuncionario("Juan Perez", "Ministro", "12345678-9", 1);
-        cartera2.agregarFuncionario("Maria Perez", "Ministro", "213456789-9", 1);
-        cartera3.agregarFuncionario("Sofia Ramirez", "Ministro", "312456789-9", 1);
-        cartera4.agregarFuncionario("Carlos Perez", "Ministro", "412356789-9", 1);
-        cartera5.agregarFuncionario("Pedro Ortiz", "Ministro", "512346789-9", 1);
-        cartera6.agregarFuncionario("Andrea Quinteros", "Ministro", "612345789-9", 1);
-        cartera7.agregarFuncionario("Oscar Zamora", "Ministro", "712345689-9", 1);
-        cartera8.agregarFuncionario("Karen Ibañez", "Ministro", "812345679-9", 1);
-        cartera9.agregarFuncionario("Camila Wagner", "Ministro", "912345678-9", 1);
-        cartera10.agregarFuncionario("Hector Aravena", "Ministro", "12345678-k", 1);
+        cartera1.agregarFuncionario("Juan Perez", "Ministro", "12345678-9");
+        cartera2.agregarFuncionario("Maria Perez", "Ministro", "213456789-9");
+        cartera3.agregarFuncionario("Sofia Ramirez", "Ministro", "312456789-9");
+        cartera4.agregarFuncionario("Carlos Perez", "Ministro", "412356789-9");
+        cartera5.agregarFuncionario("Pedro Ortiz", "Ministro", "512346789-9");
+        cartera6.agregarFuncionario("Andrea Quinteros", "Ministro", "612345789-9");
+        cartera7.agregarFuncionario("Oscar Zamora", "Ministro", "712345689-9");
+        cartera8.agregarFuncionario("Karen Ibañez", "Ministro", "812345679-9");
+        cartera9.agregarFuncionario("Camila Wagner", "Ministro", "912345678-9");
+        cartera10.agregarFuncionario("Hector Aravena", "Ministro", "12345678-k");
         carterasMapa.put("Salud", cartera1);
         carterasMapa.put("Educacion", cartera2);
         carterasMapa.put("Bienes nacionales", cartera3);
@@ -59,29 +59,44 @@ class Sistema {
 
         while (!salir) {
             System.out.println("\nMenu:");
-            System.out.println("1. Agregar cartera");
-            System.out.println("2. Mostrar carteras");
-            System.out.println("3. Buscar cartera");
-            System.out.println("4. Eliminar cartera");
-            System.out.println("5. Salir");
-            System.out.println("6. Agregar funcionario");
-            System.out.println("7. Eliminar funcionario");
-            System.out.println("8. Buscar funcionario");
-            System.out.println("9. Mostrar funcionarios");
+            System.out.println("1. Agregar una cartera");
+            System.out.println("2. Mostrar todas las carteras");
+            System.out.println("3. Buscar una cartera");
+            System.out.println("4. Eliminar una cartera");
+            System.out.println("5. Agregar un funcionario a una cartera");
+            System.out.println("6. Eliminar un funcionario");
+            System.out.println("7. Buscar un funcionario en una cartera especifica");
+            System.out.println("8. Mostrar todos los funcionarios de una cartera");
+            System.out.println("9. Salir");
             System.out.print("Elija una opción: ");
             
             int opcion = scanner.nextInt();
             scanner.nextLine();
-            String nombreCartera = "";
+            String nombreCartera;
             System.out.println("");
             switch (opcion) {
                 case 1:
-                    System.out.print("Ingrese el nombre de la cartera: ");
-                    nombreCartera = scanner.nextLine();
-                    System.out.print("Ingrese el nombre del encargado: ");
-                    String encargadoCartera = scanner.nextLine();
-                    agregarCartera(nombreCartera, encargadoCartera);
-                    System.out.println("Cartera agregada: " + carterasMapa.get(nombreCartera).getNombre());
+                        System.out.print("Ingrese el nombre de la cartera: ");
+                        nombreCartera = scanner.nextLine();
+
+                        System.out.print("¿Desea agregar un encargado a esta cartera? (Sí/No): ");
+                        String respuesta = scanner.nextLine();
+
+                        if (respuesta.equalsIgnoreCase("Si")) {
+                            System.out.print("Ingrese el nombre del encargado: ");
+                            String encargadoCartera = scanner.nextLine();
+                            System.out.print("Ingrese el ID del encargado: ");
+                            String encargadoID = scanner.nextLine();
+
+                            Funcionario encargado = new Funcionario(encargadoCartera, "Ministro", encargadoID);
+                            CarteraMinisterial nuevaCartera = new CarteraMinisterial(nombreCartera, encargadoCartera);
+                            agregarCartera(nuevaCartera);
+                            nuevaCartera.agregarFuncionario(encargado); 
+                        } else if (respuesta.equalsIgnoreCase("No")) {
+                            agregarCartera(nombreCartera);
+                        } else {
+                            System.out.println("Respuesta no válida. Debe responder 'Sí' o 'No'.");
+                        }
                     break;
                 case 2:
                     mostrarCarteras();
@@ -97,9 +112,6 @@ class Sistema {
                     eliminarCartera(nombreCartera);
                     break;
                 case 5:
-                    salir = true;
-                    break;
-                case 6:
                     System.out.println("Ingrese el nombre del funcionario: ");
                     String nombreFuncionario = scanner.nextLine();
                     
@@ -112,10 +124,9 @@ class Sistema {
                     System.out.println("Ingrese el nombre de la cartera a la que pertenece el funcionario: ");
                     nombreCartera = scanner.nextLine();
                     
-                    Funcionario funcionario = new Funcionario(nombreFuncionario, cargoFuncionario, IDFuncionario);
-                    agregarFuncionarioConsola(funcionario, nombreCartera);
+                    agregarFuncionarioConsola(nombreFuncionario, cargoFuncionario, IDFuncionario, nombreCartera);
                     break;
-                case 7:
+                case 6:
                     System.out.println("Ingrese el nombre de la cartera a la que pertenece el funcionario: ");
                     nombreCartera = scanner.nextLine();
                     
@@ -124,7 +135,7 @@ class Sistema {
                     
                     buscarCartera(nombreCartera).eliminarFuncionario(IDFuncionarioEliminar);
                     break;
-                case 8:
+                case 7:
                     System.out.println("Ingrese el nombre de la cartera a la que pertenece el funcionario: ");
                     nombreCartera = scanner.nextLine();
                     
@@ -133,10 +144,13 @@ class Sistema {
                     
                     buscarCartera(nombreCartera).buscarFuncionario(IDFuncionarioBuscar);
                     break;
-                case 9:
-                    System.out.println("Ingrese el nombre de la cartera a la que pertenece el funcionario: ");
+                case 8:
+                    System.out.println("Ingrese el nombre de la cartera, de la cual quiere visuailizar sus funcionarios: ");
                     nombreCartera = scanner.nextLine();
                     buscarCartera(nombreCartera).mostrarFuncionarios();
+                    break;
+                case 9:
+                    salir = true;
                     break;
 
                 default:
@@ -152,19 +166,14 @@ class Sistema {
         }else{
         carterasMapa.put(nombreCartera,cartera);
         carteras.add(cartera);
+        System.out.println("Cartera agregada: " + carterasMapa.get(nombreCartera).getNombre());
         }
     }
     
-    
-        public void agregarCartera(String nombreCartera, String encargadoCartera) {
-        if(carterasMapa.containsKey(nombreCartera)){
-        System.out.println("\nCartera ya existente");
-        }else{
-        CarteraMinisterial cartera = new CarteraMinisterial(nombreCartera, encargadoCartera);
-        carterasMapa.put(nombreCartera, cartera);
-        carteras.add(cartera);
+        public void agregarCartera(String nombreCartera) {
+            CarteraMinisterial nuevaCartera = new CarteraMinisterial(nombreCartera, "Sin encargado");
+            agregarCartera(nuevaCartera);
         }
-    }
         public void mostrarCarteras() {
         System.out.println("\nCarteras Ministeriales:");
         for (int i= 0; i < carteras.size(); i++) {
@@ -204,9 +213,9 @@ class Sistema {
              return carteraEliminada;
         }
 
-        public void agregarFuncionarioConsola(Funcionario funcionario, String nombreCartera){
+        public void agregarFuncionarioConsola(String nombreFuncionario, String cargo, String id , String nombreCartera){
             if(carterasMapa.containsKey(nombreCartera)){
-                carterasMapa.get(nombreCartera).agregarFuncionario(funcionario);
+                carterasMapa.get(nombreCartera).agregarFuncionario(nombreFuncionario, cargo, id);
             }else{
                 System.out.println("Cartera no existe");
             }   
