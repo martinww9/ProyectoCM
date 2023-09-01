@@ -85,5 +85,4 @@ class CarteraMinisterial {
              System.out.println("Funcionario eliminado con exito");
              return funcionarioEliminado;
         }
-    
 }

@@ -73,6 +73,8 @@ class Sistema {
             int opcion = scanner.nextInt();
             scanner.nextLine();
             String nombreCartera;
+            String nombreFuncionario;
+            String idFuncionario;
             System.out.println("");
             switch (opcion) {
                 case 1:
@@ -113,18 +115,18 @@ class Sistema {
                     break;
                 case 5:
                     System.out.println("Ingrese el nombre del funcionario: ");
-                    String nombreFuncionario = scanner.nextLine();
+                    nombreFuncionario = scanner.nextLine();
                     
                     System.out.println("Ingrese el cargo del funcionario: ");
                     String cargoFuncionario = scanner.nextLine();
                     
                     System.out.println("Ingrese el ID del funcionario: ");
-                    String IDFuncionario = scanner.nextLine();
+                    idFuncionario = scanner.nextLine();
                     
                     System.out.println("Ingrese el nombre de la cartera a la que pertenece el funcionario: ");
                     nombreCartera = scanner.nextLine();
                     
-                    agregarFuncionarioConsola(nombreFuncionario, cargoFuncionario, IDFuncionario, nombreCartera);
+                    agregarFuncionarioConsola(nombreFuncionario, cargoFuncionario, idFuncionario, nombreCartera);
                     break;
                 case 6:
                     System.out.println("Ingrese el nombre de la cartera a la que pertenece el funcionario: ");
@@ -151,6 +153,18 @@ class Sistema {
                     break;
                 case 9:
                     salir = true;
+                    break;
+                case 10: 
+                    System.out.print("Ingrese el ID del funcionario que desea reubicar: ");
+                    idFuncionario = scanner.nextLine();
+
+                    System.out.print("Ingrese el nombre de la cartera actual del funcionario: ");
+                    String nombreCarteraActual = scanner.nextLine();
+
+                    System.out.print("Ingrese el nombre de la cartera de destino: ");
+                    String nombreCarteraDestino = scanner.nextLine();
+
+                    reubicarFuncionario(idFuncionario, nombreCarteraActual, nombreCarteraDestino);
                     break;
 
                 default:
@@ -220,5 +234,26 @@ class Sistema {
                 System.out.println("Cartera no existe");
             }   
         }
+        
+        public void reubicarFuncionario(String idFuncionario, String nombreCarteraActual, String nombreCarteraDestino) {
+            CarteraMinisterial carteraActual = buscarCartera(nombreCarteraActual);
+            CarteraMinisterial carteraDestino = buscarCartera(nombreCarteraDestino);
 
-    }
+            if (carteraActual != null && carteraDestino != null) {
+                    Funcionario funcionario = carteraActual.buscarFuncionario(idFuncionario);
+                    if (funcionario != null) {
+                        // Eliminar el funcionario de la cartera de origen
+                        carteraActual.eliminarFuncionario(idFuncionario);
+
+                        // Agregar el funcionario a la cartera de destino
+                        carteraDestino.agregarFuncionario(funcionario);
+
+                        System.out.println("Funcionario reubicado con éxito.");
+                    } else {
+                        System.out.println("Funcionario no encontrado en la cartera de origen.");
+                    }
+                } else {
+                System.out.println("Una de las carteras especificadas no existe.");
+            }
+        }
+}
