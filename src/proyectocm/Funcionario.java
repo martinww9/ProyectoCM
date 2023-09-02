@@ -3,12 +3,12 @@ package proyectocm;
 public class Funcionario {
     private String nombre;
     private String cargo;
-    private String ID;
+    private String id;
 
-    public Funcionario(String nombre, String cargo, String ID) {
+    public Funcionario(String nombre, String cargo, String id) {
         this.nombre = nombre;
         this.cargo = cargo;
-        this.ID = ID;
+        this.id = id;
     }
 
     public String getNombre() {
@@ -28,11 +28,11 @@ public class Funcionario {
     }
 
     public String getID() {
-        return ID;
+        return id;
     }
 
-    public void setID(String ID) {
-        this.ID = ID;
+    public void setID(String id) {
+        this.id = id;
     }
     
 }

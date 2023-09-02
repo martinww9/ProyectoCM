@@ -229,7 +229,8 @@ class Sistema {
 
         public void agregarFuncionarioConsola(String nombreFuncionario, String cargo, String id , String nombreCartera){
             if(carterasMapa.containsKey(nombreCartera)){
-                carterasMapa.get(nombreCartera).agregarFuncionario(nombreFuncionario, cargo, id);
+                Funcionario funcionario = new Funcionario(nombreFuncionario, cargo, id);
+                carterasMapa.get(nombreCartera).agregarFuncionario(funcionario);
             }else{
                 System.out.println("Cartera no existe");
             }   
