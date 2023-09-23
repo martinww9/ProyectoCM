@@ -10,8 +10,9 @@ class Sistema {
         carteras = new ArrayList<>();
         scanner = new Scanner(System.in);
         carterasMapa = new HashMap<>();
-        inicializarCarteras();
-    }
+        //inicializarCarteras();
+        cargarDatosDesdeCSV();
+    }   
     private void inicializarCarteras(){
         CarteraMinisterial cartera1 = new CarteraMinisterial("Salud", "Jose Lopez");
         CarteraMinisterial cartera2 = new CarteraMinisterial("Educacion", "Maria Perez");
@@ -54,6 +55,7 @@ class Sistema {
         carteras.add(cartera9);
         carteras.add(cartera10);
     }
+    
     public void mostrarMenu() {
         boolean salir = false;
 
@@ -152,6 +154,7 @@ class Sistema {
                     buscarCartera(nombreCartera).mostrarFuncionarios();
                     break;
                 case 9:
+                    guardarDatosACSV();
                     salir = true;
                     break;
                 case 10: 
@@ -257,4 +260,60 @@ class Sistema {
                 System.out.println("Una de las carteras especificadas no existe.");
             }
         }
+        
+        private void cargarDatosDesdeCSV() {
+       Set<String> carterasAgregadas = new HashSet<>();
+       List<String[]> datos = CSVDataManager.cargarDatos();
+
+       for (String[] fila : datos) {
+           String nombreCartera = fila[0];
+           String encargado = fila[1];
+           String nombreFuncionario = fila[2];
+           String cargoFuncionario = fila[3];
+           String idFuncionario = fila[4];
+
+           // Verificar si la cartera y el encargado ya han sido agregados
+           String carteraEncargadoKey = nombreCartera + "-" + encargado;
+
+           if (carterasAgregadas.contains(carteraEncargadoKey)) {
+               // La cartera ya existe, agrega el funcionario a esa cartera
+               agregarFuncionarioConsola(nombreFuncionario, cargoFuncionario, idFuncionario, nombreCartera);
+           } else {
+               // La cartera no existe, crea la cartera y agrega el funcionario
+               CarteraMinisterial carteraAux = new CarteraMinisterial(nombreCartera, encargado);
+               agregarCartera(carteraAux);
+               agregarFuncionarioConsola(nombreFuncionario, cargoFuncionario, idFuncionario, nombreCartera);
+
+               // Agrega la cartera y el encargado al conjunto de seguimiento
+               carterasAgregadas.add(carteraEncargadoKey);
+            }
+        }
+    }
+        
+private void guardarDatosACSV() {
+    List<String[]> datos = new ArrayList<>();
+
+    for (CarteraMinisterial cartera : carteras) {
+        String nombreCartera = cartera.getNombre();
+        String encargado = cartera.getEncargado();
+
+        List<Funcionario> funcionarios = cartera.obtenerFuncionarios();
+
+        for (Funcionario funcionario : funcionarios) {
+            String nombreFuncionario = funcionario.getNombre();
+            String cargoFuncionario = funcionario.getCargo();
+            String idFuncionario = funcionario.getID();
+
+            String[] fila = {nombreCartera, encargado, nombreFuncionario, cargoFuncionario, idFuncionario};
+            datos.add(fila);
+        }
+    }
+
+    CSVDataManager.guardarDatos(datos);
+    System.out.println("Datos guardados en el archivo CSV.");
+}
+
+        
+        
+        
 }

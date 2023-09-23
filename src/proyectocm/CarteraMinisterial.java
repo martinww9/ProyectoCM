@@ -85,4 +85,7 @@ class CarteraMinisterial {
              System.out.println("Funcionario eliminado con exito");
              return funcionarioEliminado;
         }
+        public List<Funcionario> obtenerFuncionarios() {
+    return new ArrayList<>(funcionariosMapa.values());
+}
 }
