@@ -1,9 +1,11 @@
 package proyectocm;
 
 public class VentanaMenu extends javax.swing.JFrame {
-
-    public VentanaMenu() {
+        
+    private static Sistema sistema;
+    public VentanaMenu(Sistema sistema) {
         initComponents();
+        VentanaMenu.sistema = sistema;
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -159,7 +161,7 @@ public class VentanaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    Sistema sistema = new Sistema();
+    //Sistema sistema = new Sistema();
     VentanaAgregar nuevaVentana = new VentanaAgregar(sistema);
     nuevaVentana.setVisible(true);        // TODssssdsddssO add yosasur hasqqndling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -169,16 +171,16 @@ public class VentanaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-    Sistema sistema = new Sistema();
+    //Sistema sistema = new Sistema();
     VentanaMostrar nuevaVentana = new VentanaMostrar(sistema);
     nuevaVentana.setVisible(true);    
     }//GEN-LAST:event_jButton2MouseClicked
 
     public static void main(String args[]) {
-
+ 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaMenu().setVisible(true);
+                new VentanaMenu(sistema).setVisible(true);
             }
         });
     }
