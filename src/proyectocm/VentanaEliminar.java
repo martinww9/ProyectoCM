@@ -1,32 +1,25 @@
+
 package proyectocm;
-import java.io.PrintStream;
-public class VentanaMostrar extends javax.swing.JFrame {
 
-    private static Sistema sistema;
-    private javax.swing.JTextArea textArea;
+
+public class VentanaEliminar extends javax.swing.JFrame {
+
+    private Sistema sistema;
     
-    public VentanaMostrar(Sistema sistema) {
+    public VentanaEliminar(Sistema sistema) {
+        this.sistema=sistema;
         initComponents();
-        VentanaMostrar.sistema = sistema;
-
-        mostrarCarteras();
     }
 
- private void mostrarCarteras() {
-    jTextArea.setText(""); // Limpia el textArea antes de mostrar las carteras
-    PrintStream printStream = new PrintStream(new CustomOutputStream(jTextArea));
-    System.setOut(printStream);
-    sistema.mostrarCarteras(); // Llama al método mostrarCarteras() de la instancia de Sistema
-}
-
-
-    
+    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         openMenuItem = new javax.swing.JMenuItem();
@@ -44,14 +37,20 @@ public class VentanaMostrar extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextArea.setColumns(20);
-        jTextArea.setRows(5);
-        jScrollPane1.setViewportView(jTextArea);
+        jLabel1.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
+        jLabel1.setText("Ingrese la cartera a eliminar");
 
-        jButton1.setText("Salir");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+        jButton1.setText("Eliminar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Salir");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -123,22 +122,38 @@ public class VentanaMostrar extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 699, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(291, 291, 291))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(133, 133, 133)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(148, 148, 148)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(196, 196, 196)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(130, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
+                .addGap(155, 155, 155)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(69, 69, 69)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(116, Short.MAX_VALUE))
         );
 
         pack();
@@ -148,9 +163,20 @@ public class VentanaMostrar extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        dispose();
-    }//GEN-LAST:event_jButton1MouseClicked
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    String nombreCartera = jTextField1.getText();
+   
+    if(sistema.eliminarCartera(nombreCartera)==null){
+        jLabel2.setText("Cartera no Existe ");
+    }else{
+        jLabel2.setText("Cartera eliminada: "+ nombreCartera);
+    }
+    
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -169,23 +195,22 @@ public class VentanaMostrar extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaMostrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaEliminar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaMostrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaEliminar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaMostrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaEliminar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaMostrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaEliminar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                Sistema sistema = new Sistema();
-                VentanaMostrar ventanaMostrar = new VentanaMostrar(sistema);
-                ventanaMostrar.setVisible(true);
-               
+            Sistema sistema = new Sistema(); // Aquí inicializas el sistema
+            VentanaEliminar ventanaA = new VentanaEliminar(sistema);
+            ventanaA.setVisible(true);
             }
         });
     }
@@ -201,8 +226,10 @@ public class VentanaMostrar extends javax.swing.JFrame {
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu helpMenu;
     private javax.swing.JButton jButton1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem pasteMenuItem;

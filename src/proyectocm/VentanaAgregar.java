@@ -5,22 +5,22 @@ package proyectocm;
 public class VentanaAgregar extends javax.swing.JFrame {
 
     private Sistema sistema;
+    //private javax.swing.JTextField txtNombreCartera1;
+    //private javax.swing.JTextField txtEncargado1;
     
     public VentanaAgregar(Sistema sistema) {
         this.sistema = sistema;
         initComponents();
     }
 
-
-   
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        txtNombreCartera = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        txtEncargado = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        txtNombreCartera1 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        txtEncargado1 = new javax.swing.JTextField();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         openMenuItem = new javax.swing.JMenuItem();
@@ -38,10 +38,6 @@ public class VentanaAgregar extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Ingrese el nombre de la cartera:");
-
-        jLabel2.setText("Ingrese el encargado de la cartera (Opcional)");
-
         jButton1.setText("Agregar");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -53,6 +49,16 @@ public class VentanaAgregar extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+
+        jLabel1.setText("Ingrese nombre de la cartera");
+
+        txtNombreCartera1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreCartera1ActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Ingrese nombre del encargado (opcional)");
 
         fileMenu.setMnemonic('f');
         fileMenu.setText("File");
@@ -124,35 +130,34 @@ public class VentanaAgregar extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtEncargado, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNombreCartera, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(156, 156, 156)
+                        .addComponent(jButton1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(164, 164, 164)
-                        .addComponent(jButton1)))
-                .addContainerGap(17, Short.MAX_VALUE))
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtNombreCartera1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtEncargado1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(64, 64, 64)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(72, 72, 72)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNombreCartera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabel1)
+                    .addComponent(txtNombreCartera1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtEncargado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
+                    .addComponent(txtEncargado1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addGap(79, 79, 79))
         );
 
         pack();
@@ -163,12 +168,13 @@ public class VentanaAgregar extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-    String nombreCartera = txtNombreCartera.getText();
-    String encargado = txtEncargado.getText();
+    String nombreCartera = txtNombreCartera1.getText();
+    String encargado = txtEncargado1.getText();
+
 
     CarteraMinisterial nuevaCartera = new CarteraMinisterial(nombreCartera, encargado);
     System.out.println(encargado);
@@ -179,7 +185,14 @@ public class VentanaAgregar extends javax.swing.JFrame {
 
 
     dispose();
+
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void txtNombreCartera1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreCartera1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreCartera1ActionPerformed
+
+
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -209,8 +222,8 @@ public class VentanaAgregar extends javax.swing.JFrame {
     private javax.swing.JMenuItem pasteMenuItem;
     private javax.swing.JMenuItem saveAsMenuItem;
     private javax.swing.JMenuItem saveMenuItem;
-    private javax.swing.JTextField txtEncargado;
-    private javax.swing.JTextField txtNombreCartera;
+    private javax.swing.JTextField txtEncargado1;
+    private javax.swing.JTextField txtNombreCartera1;
     // End of variables declaration//GEN-END:variables
 
 }

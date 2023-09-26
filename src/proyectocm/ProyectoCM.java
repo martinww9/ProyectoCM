@@ -1,12 +1,13 @@
 package proyectocm;
 
 public class ProyectoCM {
-
+      
     public static void main(String[] args) {
         
         Sistema sistema = new Sistema();
-        VentanaMenu ventana = new VentanaMenu(sistema);
+        VentanaPrincipal ventana = new VentanaPrincipal(sistema);
         ventana.setVisible(true);
+        ventana.setLocationRelativeTo(null);
         sistema.mostrarMenu();
         
     }
