@@ -1,5 +1,7 @@
 package proyectocm;
 
+import javax.swing.JOptionPane;
+
     
 public class VentanaBuscarFuncionarios extends javax.swing.JFrame {
 
@@ -197,14 +199,18 @@ public class VentanaBuscarFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    String nombreCartera = jTextField2.getText();
-    String idFuncionario = jTextField3.getText();
-   
-    if(sistema.buscarCartera(nombreCartera).buscarFuncionario(idFuncionario)==null){
-        jLabel1.setText("El usuario no existe");
-    }else{
-        jLabel1.setText("El usuario si existe");
-    }
+        try {
+            String nombreCartera = jTextField2.getText();
+            String idFuncionario = jTextField3.getText();
+        CarteraMinisterial caretra = sistema.buscarCartera(nombreCartera);
+        Funcionario funcionarioBuscado = caretra.buscarFuncionario(idFuncionario);
+        JOptionPane.showMessageDialog(this, "Funcionario encontrado con éxito: " + funcionarioBuscado.getNombre(), "Éxito", JOptionPane.INFORMATION_MESSAGE);
+    } catch (CarteraNotFoundException ex) {
+        JOptionPane.showMessageDialog(this, "Error: Cartera no encontrada.", "Error", JOptionPane.ERROR_MESSAGE);
+    }       catch (FuncionarioNotFoundException ex2) {
+                JOptionPane.showMessageDialog(this, "Error: Funcionario no encontrado.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+    
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

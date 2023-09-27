@@ -38,15 +38,19 @@ class CarteraMinisterial {
             System.out.println( " ID: " + funcionarios.get(i).getID());
         }
     }
-    public void agregarFuncionario(String nombreFuncionario, String cargo, String id) {
-        if(funcionariosMapa.containsKey(id)) {
-             System.out.print("Funcionario ya esta registrado.");
-        } else {
-            Funcionario funcionario = new Funcionario(nombreFuncionario, cargo, id);
-            funcionariosMapa.put(id, funcionario);
-            funcionarios.add(funcionario);         
-        } 
-    }   
+    public void agregarFuncionario(String nombreFuncionario, String cargo, String id) throws FuncionarioExistsException {
+        
+            for (Funcionario funcionario : funcionarios) {
+            if (funcionario.getID().equals(id)) {
+                throw new FuncionarioExistsException("Funcionario con el mismo ID ya existe en la cartera.");
+            }
+        }
+
+       
+        Funcionario funcionario = new Funcionario(nombreFuncionario, cargo, id);
+        funcionariosMapa.put(id, funcionario);
+        funcionarios.add(funcionario);
+}
 
     public void agregarFuncionario(Funcionario funcionario){
         String idFuncionario = funcionario.getID();
@@ -58,17 +62,16 @@ class CarteraMinisterial {
         System.out.println("Funcionario agregado: " + funcionariosMapa.get(idFuncionario).getNombre());
        }
    }
-   public Funcionario buscarFuncionario (String id){
-        if(funcionariosMapa.containsKey(id)) {
-                System.out.println("Funcionario encontrado: " + funcionariosMapa.get(id).getNombre());
-                return funcionariosMapa.get(id);
+    public Funcionario buscarFuncionario(String id) throws FuncionarioNotFoundException {
+        if (funcionariosMapa.containsKey(id)) {
+            System.out.println("Funcionario encontrado: " + funcionariosMapa.get(id).getNombre());
+            return funcionariosMapa.get(id);
+        } else {
+            throw new FuncionarioNotFoundException("Funcionario no encontrado de ID: " + id);
         }
-        else
-            System.out.println("Funcionario no encontrado");
-        return null;
     }
         
-        public Funcionario eliminarFuncionario (String id){
+        public Funcionario eliminarFuncionario (String id) throws FuncionarioNotFoundException{
             Funcionario funcionarioEliminado = buscarFuncionario(id);
             if(funcionarioEliminado == null) {
                 return null;

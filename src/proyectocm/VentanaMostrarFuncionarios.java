@@ -2,6 +2,9 @@
 package proyectocm;
 
 import java.io.PrintStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class VentanaMostrarFuncionarios extends javax.swing.JFrame {
 
@@ -186,15 +189,17 @@ public class VentanaMostrarFuncionarios extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String nombreCartera = jTextField1.getText();
-      if(sistema.buscarCartera(nombreCartera)==null){
-        jLabel2.setText("Cartera no encontrada: ");
-    } else{
-             jTextArea1.setText("");
-             PrintStream printStream = new PrintStream(new CustomOutputStream(jTextArea1));
-             System.setOut(printStream);
-             sistema.buscarCartera(nombreCartera).mostrarFuncionarios();
-             jLabel2.setText("Cartera encontrada: " + nombreCartera);
-          }
+        try {
+                CarteraMinisterial cartera = sistema.buscarCartera(nombreCartera);
+                jTextArea1.setText("");
+                PrintStream printStream = new PrintStream(new CustomOutputStream(jTextArea1));
+                System.setOut(printStream);
+                sistema.buscarCartera(nombreCartera).mostrarFuncionarios();
+                JOptionPane.showMessageDialog(this, "Cartera encontrada: " + cartera.getNombre(), "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            }
+         catch (CarteraNotFoundException ex) {
+            JOptionPane.showMessageDialog(this, "Error: Cartera no encontrada.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

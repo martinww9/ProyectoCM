@@ -1,5 +1,7 @@
 package proyectocm;
 
+import javax.swing.JOptionPane;
+
 
 public class VentanaBuscar extends javax.swing.JFrame {
     //private javax.swing.JLabel LabelResultado1;
@@ -51,7 +53,7 @@ public class VentanaBuscar extends javax.swing.JFrame {
 
         jToggleButton1.setText("Buscar");
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            public void actionPerformed(java.awt.event.ActionEvent evt)  {
                 jToggleButton1ActionPerformed(evt);
             }
         });
@@ -210,13 +212,13 @@ public class VentanaBuscar extends javax.swing.JFrame {
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
     
-    //Sistema sistema = new Sistema();
-    String nombreCartera = textFieldBuscar.getText();
-    if(sistema.buscarCartera(nombreCartera)==null){
-        LabelResultado1.setText("Cartera no encontrada: ");
-    } else{
-             LabelResultado1.setText("Cartera encontrada: " + nombreCartera);
-                }
+        try {
+           String nombreCartera = textFieldBuscar.getText();
+        CarteraMinisterial carteraEncontrada = sistema.buscarCartera(nombreCartera);
+        LabelResultado1.setText("Cartera encontrada: " + carteraEncontrada.getNombre());
+        } catch (CarteraNotFoundException ex) {
+             JOptionPane.showMessageDialog(this, "Error: Cartera no encontrada.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

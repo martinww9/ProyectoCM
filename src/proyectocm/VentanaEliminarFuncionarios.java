@@ -1,6 +1,10 @@
 
 package proyectocm;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 
 public class VentanaEliminarFuncionarios extends javax.swing.JFrame {
 
@@ -179,14 +183,19 @@ public class VentanaEliminarFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     String nombreCartera = jTextField1.getText();
-     String idFuncionario = jTextField2.getText();
-   
-    if(sistema.buscarCartera(nombreCartera).eliminarFuncionario(idFuncionario)==null){
-        jLabel3.setText("Cartera no Existe");
-    }else{
-        jLabel3.setText("Usuario eliminado correctamente de la cartera: "+ nombreCartera);
-    }
+
+    try {
+        String nombreCartera = jTextField1.getText();
+        String idFuncionario = jTextField2.getText();
+    CarteraMinisterial caretra = sistema.buscarCartera(nombreCartera);
+    Funcionario funcionarioEliminada = caretra.eliminarFuncionario(idFuncionario);
+    JOptionPane.showMessageDialog(this, "Funcionario eliminado con éxito: " + funcionarioEliminada.getNombre(), "Éxito", JOptionPane.INFORMATION_MESSAGE);
+} catch (CarteraNotFoundException ex) {
+    JOptionPane.showMessageDialog(this, "Error: Cartera no encontrada.", "Error", JOptionPane.ERROR_MESSAGE);
+}       catch (FuncionarioNotFoundException ex2) {
+            JOptionPane.showMessageDialog(this, "Error: Funcionario no encontrado.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

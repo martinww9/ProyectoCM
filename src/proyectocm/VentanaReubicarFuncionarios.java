@@ -1,6 +1,8 @@
 
 package proyectocm;
 
+import javax.swing.JOptionPane;
+
 
 public class VentanaReubicarFuncionarios extends javax.swing.JFrame {
 
@@ -201,17 +203,29 @@ public class VentanaReubicarFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       String idFuncionario = jTextField1.getText();
-       String nombreCarteraActual = jTextField2.getText();
-       String nombreCarteraDestino = jTextField3.getText();
+
+    try {
+        String idFuncionario = jTextField1.getText();
+        String nombreCarteraActual = jTextField2.getText();
+        String nombreCarteraDestino = jTextField3.getText();
+
+        // Realizar la búsqueda de la cartera actual y el funcionario
+        CarteraMinisterial carteraActual = sistema.buscarCartera(nombreCarteraActual);
+        CarteraMinisterial carteraDestino = sistema.buscarCartera(nombreCarteraDestino);
+        Funcionario funcionario = carteraActual.buscarFuncionario(idFuncionario);
+        sistema.reubicarFuncionario(idFuncionario, nombreCarteraActual, nombreCarteraDestino);
+       JOptionPane.showMessageDialog(this, "Funcionario reubicado: " + funcionario.getNombre(), "Éxito", JOptionPane.INFORMATION_MESSAGE);
        
-     if(sistema.buscarCartera(nombreCarteraActual).buscarFuncionario(idFuncionario)==null){
-        jLabel4.setText("Cartera actual no Existe o Funcionario no encontrado");
-    }else{
-         sistema.reubicarFuncionario(idFuncionario, nombreCarteraActual, nombreCarteraDestino);
-        jLabel4.setText("Usuario reubicado correctamente ");
+    } catch (CarteraNotFoundException ex) {
+         JOptionPane.showMessageDialog(this, "Error: Cartera actual/destino no encontrada.", "Error", JOptionPane.ERROR_MESSAGE);
+    } catch (FuncionarioNotFoundException ex) {
+         JOptionPane.showMessageDialog(this, "Error: Funcionario no encontrado.", "Error", JOptionPane.ERROR_MESSAGE);
     }
-       
+
+
+     
+     
+     
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

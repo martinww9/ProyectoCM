@@ -1,6 +1,10 @@
 
 package proyectocm;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 
 public class VentanaAgregar extends javax.swing.JFrame {
 
@@ -172,24 +176,27 @@ public class VentanaAgregar extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-    String nombreCartera = txtNombreCartera1.getText();
-    String encargado = txtEncargado1.getText();
 
 
-    CarteraMinisterial nuevaCartera = new CarteraMinisterial(nombreCartera, encargado);
-    System.out.println(encargado);
-    if("".equals(encargado))
-        sistema.agregarCartera(nombreCartera);
-    else
-    sistema.agregarCartera(nuevaCartera);
 
-
-    dispose();
-
+        try {
+        String nombreCartera = txtNombreCartera1.getText();
+        String encargado = txtEncargado1.getText();
+        CarteraMinisterial nuevaCartera = new CarteraMinisterial(nombreCartera, encargado);
+            if("".equals(encargado)){
+            sistema.agregarCartera(nombreCartera);
+            }
+            else
+                sistema.agregarCartera(nuevaCartera);
+            JOptionPane.showMessageDialog(this, "Cartera agregada con éxito: " + nuevaCartera.getNombre(), "Éxito", JOptionPane.INFORMATION_MESSAGE);
+    } catch (CarteraExistsException ex) {
+        JOptionPane.showMessageDialog(this, "Error: Cartera ya existe.", "Error", JOptionPane.ERROR_MESSAGE);
+    }
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void txtNombreCartera1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreCartera1ActionPerformed
         // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_txtNombreCartera1ActionPerformed
 
 

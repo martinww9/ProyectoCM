@@ -1,6 +1,8 @@
 
 package proyectocm;
 
+import javax.swing.JOptionPane;
+
 
 public class VentanaEliminar extends javax.swing.JFrame {
 
@@ -164,14 +166,16 @@ public class VentanaEliminar extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+try {
     String nombreCartera = jTextField1.getText();
-   
-    if(sistema.eliminarCartera(nombreCartera)==null){
-        jLabel2.setText("Cartera no Existe ");
-    }else{
-        jLabel2.setText("Cartera eliminada: "+ nombreCartera);
-    }
+    CarteraMinisterial carteraEliminada = sistema.eliminarCartera(nombreCartera);
+    JOptionPane.showMessageDialog(this, "Cartera eliminada con éxito: " + carteraEliminada.getNombre(), "Éxito", JOptionPane.INFORMATION_MESSAGE);
+} catch (CarteraNotFoundException ex) {
+    JOptionPane.showMessageDialog(this, "Error: Cartera no encontrada.", "Error", JOptionPane.ERROR_MESSAGE);
+}
+
     
+ 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

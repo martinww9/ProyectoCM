@@ -1,6 +1,8 @@
 
 package proyectocm;
 
+import javax.swing.JOptionPane;
+
 
 public class VentanaAgregarFuncionarios extends javax.swing.JFrame {
 
@@ -224,17 +226,19 @@ public class VentanaAgregarFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     String nombreFuncionario = jTextField1.getText();
-     String cargoFuncionario = jTextField2.getText();
-     String idFuncionario = jTextField3.getText();
-     String nombreCartera = jTextField4.getText();
-   
-    if(sistema.buscarCartera(nombreCartera).buscarFuncionario(idFuncionario)==null){
-        sistema.agregarFuncionarioConsola(nombreFuncionario, cargoFuncionario, idFuncionario, nombreCartera);
-        jLabel6.setText("Funcionario agregado correctamente");
-    }else{
-        jLabel6.setText("El usuario ya existe ");
-    }
+        try {
+            String nombreFuncionario = jTextField1.getText();
+            String cargoFuncionario = jTextField2.getText();
+            String idFuncionario = jTextField3.getText();
+            String nombreCartera = jTextField4.getText();
+            CarteraMinisterial cartera = sistema.buscarCartera(nombreCartera);
+            cartera.agregarFuncionario(nombreFuncionario, cargoFuncionario, idFuncionario);
+            JOptionPane.showMessageDialog(this, "Funcionario agregado con éxito: " + nombreFuncionario, "Éxito", JOptionPane.INFORMATION_MESSAGE);
+        } catch (CarteraNotFoundException ex) {
+            JOptionPane.showMessageDialog(this, "Error: Cartera no encontrada.", "Error", JOptionPane.ERROR_MESSAGE);
+        }   catch (FuncionarioExistsException ex2) {
+            JOptionPane.showMessageDialog(this, "Error: Funcionario ya existe.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
