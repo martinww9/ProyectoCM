@@ -126,7 +126,18 @@ class Sistema {
 
                     reubicarFuncionario(idFuncionario, nombreCarteraActual, nombreCarteraDestino);
                     break;
+                case 11:
+                    System.out.print("Ingrese el ID del funcionario que desea cambiar de cargo: ");
+                    idFuncionario = scanner.nextLine();
 
+                    System.out.print("Ingrese el nombre de la cartera actual del funcionario: ");
+                    String nickCartera = scanner.nextLine();
+
+                    System.out.println("Ingrese el cargo nuevo");
+                    String cargoNuevo = scanner.nextLine();
+                    
+                    cambiarCargoFuncionario(idFuncionario, nickCartera, cargoNuevo);
+                    break;
                 default:
                     System.out.println("Opción inválida");
             }
@@ -217,6 +228,19 @@ public CarteraMinisterial buscarCartera(String nombreCartera) throws CarteraNotF
                     }
                 } else {
                 System.out.println("Una de las carteras especificadas no existe.");
+            }
+        }
+        
+        public void cambiarCargoFuncionario(String idFuncionario, String carteraFuncionario, String cargoNuevo)throws CarteraNotFoundException, FuncionarioNotFoundException {
+            CarteraMinisterial carteraAct = buscarCartera(carteraFuncionario);
+            //Verificar existencia de cartera
+            if (carteraAct != null){
+                Funcionario funcionario = carteraAct.buscarFuncionario(idFuncionario);
+                //Verificar existencia de funcionario
+                if (funcionario != null){
+                    //Cambiar cargo del funcionario
+                    funcionario.setCargo(cargoNuevo);
+                }
             }
         }
         
