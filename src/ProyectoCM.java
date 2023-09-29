@@ -1,5 +1,3 @@
-
-
 import javax.swing.JOptionPane;
 
 public class ProyectoCM {
@@ -13,7 +11,11 @@ public class ProyectoCM {
             sistema.cargarDatosDesdeCSV();
             //sistema.mostrarMenu();
         } catch (CarteraExistsException e) {
-            JOptionPane.showMessageDialog(null, "Error: La cartera ya existe.", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Error: Cartera ya existe.", "Error", JOptionPane.ERROR_MESSAGE);
+        } catch (CarteraNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Error: Cartera no existe.", "Error", JOptionPane.ERROR_MESSAGE);
+        } catch (FuncionarioExistsException ex) {
+            JOptionPane.showMessageDialog(null, "Error: Funcionario ya existe.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 }

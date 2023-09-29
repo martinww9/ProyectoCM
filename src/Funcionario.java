@@ -35,4 +35,10 @@ public class Funcionario {
         this.id = id;
     }
     
+        @Override
+    public String toString() {
+        return "Nombre: " + nombre + "\nCargo: " + cargo + "\nID: " + id;
+    }
+
+    
 }

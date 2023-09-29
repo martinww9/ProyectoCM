@@ -30,7 +30,12 @@ class CarteraMinisterial {
         this.encargado = encargado;
     }
     
-    public void mostrarFuncionarios() {
+        @Override
+    public String toString() {
+        return "Cartera: " + nombre + "\nEncargado: " + encargado;
+    }
+    
+  /*  public void mostrarFuncionarios() {
         System.out.println("Funcionarios:");
         for (int i= 0; i < funcionarios.size(); i++) {
             System.out.print((i+1) + ") " + funcionarios.get(i).getNombre());
@@ -38,6 +43,17 @@ class CarteraMinisterial {
             System.out.println( " ID: " + funcionarios.get(i).getID());
         }
     }
+    
+    */
+    public void mostrarFuncionarios() {
+    //System.out.println("Funcionarios:");
+    for (Funcionario funcionario : funcionarios) {
+        System.out.println(funcionario.toString());
+        System.out.println(""); // Llamada a toString
+    }
+}
+
+    
     public void agregarFuncionario(String nombreFuncionario, String cargo, String id) throws FuncionarioExistsException {
         
             for (Funcionario funcionario : funcionarios) {
@@ -46,22 +62,21 @@ class CarteraMinisterial {
             }
         }
 
-       
         Funcionario funcionario = new Funcionario(nombreFuncionario, cargo, id);
         funcionariosMapa.put(id, funcionario);
         funcionarios.add(funcionario);
 }
 
-    public void agregarFuncionario(Funcionario funcionario){
+    public void agregarFuncionario(Funcionario funcionario) throws FuncionarioExistsException {
         String idFuncionario = funcionario.getID();
-       if(funcionariosMapa.containsKey(idFuncionario)){
-       System.out.println("\nFuncionario ya existente");
-       }else{
-        funcionariosMapa.put(idFuncionario, funcionario);
-        funcionarios.add(funcionario);
-        System.out.println("Funcionario agregado: " + funcionariosMapa.get(idFuncionario).getNombre());
-       }
-   }
+
+        if (funcionariosMapa.containsKey(idFuncionario)) {
+            throw new FuncionarioExistsException("Funcionario con el mismo ID ya existe en la cartera.");
+        } else {
+            funcionariosMapa.put(idFuncionario, funcionario);
+            funcionarios.add(funcionario);
+        }
+    }
     public Funcionario buscarFuncionario(String id) throws FuncionarioNotFoundException {
         if (funcionariosMapa.containsKey(id)) {
             System.out.println("Funcionario encontrado: " + funcionariosMapa.get(id).getNombre());
@@ -91,4 +106,16 @@ class CarteraMinisterial {
         public List<Funcionario> obtenerFuncionarios() {
     return new ArrayList<>(funcionariosMapa.values());
 }
+        public List<Funcionario> filtrarFuncionariosPorCargo(String cargo) {
+            List<Funcionario> funcionariosFiltrados = new ArrayList<>();
+
+            for (Funcionario funcionario : funcionarios) {
+                if (funcionario.getCargo().equalsIgnoreCase(cargo)) {
+                    funcionariosFiltrados.add(funcionario);
+                }
+            }
+
+            return funcionariosFiltrados;
+    }
+        
 }
