@@ -53,12 +53,12 @@ public class VentanaBuscar extends javax.swing.JFrame {
 
         jToggleButton1.setText("Buscar");
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt)  {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton1ActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Salir");
+        jButton1.setText("Volver");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -222,6 +222,9 @@ public class VentanaBuscar extends javax.swing.JFrame {
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        VentanaMenu nuevaVentana = new VentanaMenu(sistema);
+        nuevaVentana.setVisible(true);
+        nuevaVentana.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 

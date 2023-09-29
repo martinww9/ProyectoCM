@@ -49,11 +49,6 @@ public class VentanaMenu extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, -1, -1));
 
         jButton2.setText("Mostrar Carteras Ministeriales");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
-            }
-        });
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -62,11 +57,6 @@ public class VentanaMenu extends javax.swing.JFrame {
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, 230, 28));
 
         jButton1.setText("Agregar Cartera Ministerial");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
-            }
-        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -83,11 +73,6 @@ public class VentanaMenu extends javax.swing.JFrame {
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 230, 30));
 
         jButton3.setText("Buscar Cartera Ministerial");
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton3MouseClicked(evt);
-            }
-        });
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -212,6 +197,9 @@ public class VentanaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        VentanaPrincipal nuevaVentana = new VentanaPrincipal(sistema);
+        nuevaVentana.setVisible(true);
+        nuevaVentana.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -219,39 +207,30 @@ public class VentanaMenu extends javax.swing.JFrame {
         VentanaEliminar nuevaVentana = new VentanaEliminar(sistema);
         nuevaVentana.setVisible(true);
         nuevaVentana.setLocationRelativeTo(null);
+        dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         VentanaBuscar nuevaVentana = new VentanaBuscar(sistema);
         nuevaVentana.setVisible(true);
         nuevaVentana.setLocationRelativeTo(null);
-    }//GEN-LAST:event_jButton3MouseClicked
+        dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //Sistema sistema = new Sistema();
         VentanaAgregar nuevaVentana = new VentanaAgregar(sistema);
         nuevaVentana.setVisible(true);
         nuevaVentana.setLocationRelativeTo(null);// TODssssdsddssO add yosasur hasqqndling code here:
+        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1MouseClicked
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        //Sistema sistema = new Sistema();
         VentanaMostrar nuevaVentana = new VentanaMostrar(sistema);
         nuevaVentana.setVisible(true);
         nuevaVentana.setLocationRelativeTo(null);
-    }//GEN-LAST:event_jButton2MouseClicked
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     public static void main(String args[]) {
  

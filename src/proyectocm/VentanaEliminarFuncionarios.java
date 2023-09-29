@@ -191,7 +191,7 @@ public class VentanaEliminarFuncionarios extends javax.swing.JFrame {
     Funcionario funcionarioEliminada = caretra.eliminarFuncionario(idFuncionario);
     JOptionPane.showMessageDialog(this, "Funcionario eliminado con éxito: " + funcionarioEliminada.getNombre(), "Éxito", JOptionPane.INFORMATION_MESSAGE);
 } catch (CarteraNotFoundException ex) {
-    JOptionPane.showMessageDialog(this, "Error: Cartera no encontrada.", "Error", JOptionPane.ERROR_MESSAGE);
+    JOptionPane.showMessageDialog(this, "Error: Cartera no existe.", "Error", JOptionPane.ERROR_MESSAGE);
 }       catch (FuncionarioNotFoundException ex2) {
             JOptionPane.showMessageDialog(this, "Error: Funcionario no encontrado.", "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -199,6 +199,9 @@ public class VentanaEliminarFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        VentanaMenuFuncionarios nuevaVentana = new VentanaMenuFuncionarios(sistema);
+        nuevaVentana.setVisible(true);
+        nuevaVentana.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 

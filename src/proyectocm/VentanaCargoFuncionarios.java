@@ -54,7 +54,7 @@ public class VentanaCargoFuncionarios extends javax.swing.JFrame {
 
         jLabel3.setText("Ingrese el cargo nuevo:");
 
-        jButton2.setText("Salir");
+        jButton2.setText("Volver");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -177,6 +177,9 @@ public class VentanaCargoFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        VentanaMenuFuncionarios nuevaVentana = new VentanaMenuFuncionarios(sistema);
+        nuevaVentana.setVisible(true);
+        nuevaVentana.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
