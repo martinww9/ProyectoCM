@@ -9,7 +9,6 @@ public class ProyectoCM {
             ventana.setVisible(true);
             ventana.setLocationRelativeTo(null);
             sistema.cargarDatosDesdeCSV();
-            //sistema.mostrarMenu();
         } catch (CarteraExistsException e) {
             JOptionPane.showMessageDialog(null, "Error: Cartera ya existe.", "Error", JOptionPane.ERROR_MESSAGE);
         } catch (CarteraNotFoundException ex) {

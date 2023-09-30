@@ -31,17 +31,6 @@ public void agregarCartera(CarteraMinisterial cartera) throws CarteraExistsExcep
             agregarCartera(nuevaCartera);
         }
         
-       /* public void mostrarCarteras() {
-        System.out.println("\nCarteras Ministeriales:");
-        for (int i= 0; i < carteras.size(); i++) {
-            System.out.println( (i+1) + ". " + carteras.get(i).getNombre());
-            System.out.print("Encargado:");
-            System.out.println(" - " + carteras.get(i).getEncargado());
-            carteras.get(i).mostrarFuncionarios();
-            System.out.println("");
-        }
-    }
-*/
         public void mostrarCarteras() {
     System.out.println("\nCarteras Ministeriales:");
     for (int i = 0; i < carteras.size(); i++) {
