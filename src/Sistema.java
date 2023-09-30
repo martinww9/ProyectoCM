@@ -4,13 +4,10 @@ import java.util.*;
 class Sistema {
     private ArrayList<CarteraMinisterial> carteras;
     private HashMap<String,CarteraMinisterial> carterasMapa;
-    private Scanner scanner;
 
     public Sistema()  {
         carteras = new ArrayList<>();
-        scanner = new Scanner(System.in);
-        carterasMapa = new HashMap<>();
-        //inicializarCarteras(); 
+        carterasMapa = new HashMap<>(); 
     }   
     
     //Sobre carga de metodo
