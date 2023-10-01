@@ -1,90 +1,90 @@
 Cultura,Luisa Torres,Luis Torres,Ministro,23456789-2
 Cultura,Luisa Torres,Ana Gonzalez,Subsecretario,34567890-3
-Cultura,Luisa Torres,Luis Ramirez,Director,45678901-4
 Cultura,Luisa Torres,Ana Martinez,Director de Comunicaciones,56789012-5
 Cultura,Luisa Torres,Jose Perez,Especialista,67890123-6
 Cultura,Luisa Torres,Pedro Torres,Asesor Legal,78901234-7
-Energ?a,Carlos Rojas,Carlos Rojas,Ministro,45678901-4
+Cultura,Luisa Torres,Luis Ramirez,Director,45678901-4
 Energ?a,Carlos Rojas,Pedro Ramirez,Subsecretario,56789012-5
 Energ?a,Carlos Rojas,Maria Lopez,Coordinador de Proyectos,67890123-6
 Energ?a,Carlos Rojas,Andres Gonzalez,Director,78901234-7
-Energ?a,Carlos Rojas,Luis Rojas,Asistente Ejecutivo,89012345-8
 Energ?a,Carlos Rojas,Karen Ramirez,Especialista,90123456-9
-Econom?a,Ana Sanchez,Pedro Torres,Ministro,67890123-6
+Energ?a,Carlos Rojas,Carlos Rojas,Ministro,45678901-4
+Energ?a,Carlos Rojas,Luis Rojas,Asistente Ejecutivo,89012345-8
+Econom?a,Ana Sanchez,Ana Gonzalez,Director de Finanzas,01234567-0
 Econom?a,Ana Sanchez,Luisa Soto,Subsecretario,56789012-6
+Econom?a,Ana Sanchez,Pedro Torres,Ministro,67890123-6
 Econom?a,Ana Sanchez,Maria Perez,Jefe de Protocolo,34567890-7
 Econom?a,Ana Sanchez,Jose Gomez,Analista de Datos,23456789-8
 Econom?a,Ana Sanchez,Karen Rojas,Especialista,12345678-9
-Econom?a,Ana Sanchez,Ana Gonzalez,Director de Finanzas,01234567-0
-Transporte,Jose Perez,Jose Perez,Ministro,89012345-8
+Transporte,Jose Perez,Sofia Vega,Especialista,56789012-3
 Transporte,Jose Perez,Luis Ramirez,Subsecretario,90123456-9
+Transporte,Jose Perez,Luis Rojas,Especialista,45678901-2
+Transporte,Jose Perez,Jose Perez,Ministro,89012345-8
 Transporte,Jose Perez,Sofia Mendez,Director,23456789-0
 Transporte,Jose Perez,Andres Gonzalez,Director,34567890-1
-Transporte,Jose Perez,Luis Rojas,Especialista,45678901-2
-Transporte,Jose Perez,Sofia Vega,Especialista,56789012-3
 Vivienda,Karen Rojas,Karen Rojas,Ministro,01234567-0
-Vivienda,Karen Rojas,Luis Ramirez,Subsecretario,12345678-1
 Vivienda,Karen Rojas,Maria Perez,Director,23456789-2
 Vivienda,Karen Rojas,Sofia Mendez,Director,34567890-3
-Vivienda,Karen Rojas,Carlos Rojas,Especialista,45678901-4
 Vivienda,Karen Rojas,Pedro Ramirez,Especialista,56789012-5
-Salud,Sofia Mendez,Sofia Mendez,Ministro,23456789-3
+Vivienda,Karen Rojas,Luis Ramirez,Subsecretario,12345678-1
+Vivienda,Karen Rojas,Carlos Rojas,Especialista,45678901-4
 Salud,Sofia Mendez,Pedro Ramirez,Subsecretario,34567890-4
-Salud,Sofia Mendez,Luis Ramirez,Jefe de Protocolo,45678901-5
+Salud,Sofia Mendez,Sofia Mendez,Ministro,23456789-3
 Salud,Sofia Mendez,Ana Martinez,Analista de Datos,56789012-6
-Salud,Sofia Mendez,Maria Perez,Especialista,67890123-7
 Salud,Sofia Mendez,Sofia Vega,Director de Finanzas,78901234-8
-Educaci?n,Pedro Torres,Pedro Torres,Ministro,45678901-5
-Educaci?n,Pedro Torres,Luisa Soto,Subsecretario,56789012-6
-Educaci?n,Pedro Torres,Sofia Vega,Director,67890123-7
-Educaci?n,Pedro Torres,Jose Perez,Director,78901234-8
+Salud,Sofia Mendez,Maria Perez,Especialista,67890123-7
+Salud,Sofia Mendez,Luis Ramirez,Jefe de Protocolo,45678901-5
 Educaci?n,Pedro Torres,Luisa Torres,Especialista,89012345-9
 Educaci?n,Pedro Torres,Ana Martinez,Especialista,90123456-0
-Bienes nacionales,Andrea Quinteros,Andrea Quinteros,Ministro,67890123-7
-Bienes nacionales,Andrea Quinteros,Carlos Torres,Subsecretario,78901234-8
+Educaci?n,Pedro Torres,Luisa Soto,Subsecretario,56789012-6
+Educaci?n,Pedro Torres,Jose Perez,Director,78901234-8
+Educaci?n,Pedro Torres,Sofia Vega,Director,67890123-7
+Educaci?n,Pedro Torres,Pedro Torres,Ministro,45678901-5
 Bienes nacionales,Andrea Quinteros,Maria Perez,Inspector General,89012345-9
 Bienes nacionales,Andrea Quinteros,Pedro Ramirez,Asistente Ejecutivo,90123456-0
-Bienes nacionales,Andrea Quinteros,Luis Ramirez,Analista de Datos,01234567-1
+Bienes nacionales,Andrea Quinteros,Carlos Torres,Subsecretario,78901234-8
 Bienes nacionales,Andrea Quinteros,Luis Rojas,Especialista,12345678-2
+Bienes nacionales,Andrea Quinteros,Andrea Quinteros,Ministro,67890123-7
+Bienes nacionales,Andrea Quinteros,Luis Ramirez,Analista de Datos,01234567-1
 Medioambiente,Karen Iba?ez,Karen Iba?ez,Ministro,89012345-9
-Medioambiente,Karen Iba?ez,Pedro Torres,Subsecretario,90123456-0
-Medioambiente,Karen Iba?ez,Sofia Vega,Coordinador de Proyectos,01234567-1
-Medioambiente,Karen Iba?ez,Carlos Rojas,Director de Asuntos Legislativos,12345678-2
-Medioambiente,Karen Iba?ez,Luis Ramirez,Inspector General,23456789-3
 Medioambiente,Karen Iba?ez,Ana Martinez,Coordinador de Innovacion,34567890-4
-Relaciones exteriores,Camila Wagner,Camila Wagner,Ministro,01234567-1
-Relaciones exteriores,Camila Wagner,Juan Sanchez,Subsecretario,12345678-2
-Relaciones exteriores,Camila Wagner,Sofia Mendez,Coordinador de Proyectos,23456789-3
+Medioambiente,Karen Iba?ez,Pedro Torres,Subsecretario,90123456-0
+Medioambiente,Karen Iba?ez,Luis Ramirez,Inspector General,23456789-3
+Medioambiente,Karen Iba?ez,Carlos Rojas,Director de Asuntos Legislativos,12345678-2
+Medioambiente,Karen Iba?ez,Sofia Vega,Coordinador de Proyectos,01234567-1
 Relaciones exteriores,Camila Wagner,Ana Gonzalez,Coordinador de Innovacion,34567890-4
-Relaciones exteriores,Camila Wagner,Luis Ramirez,Especialista,45678901-5
+Relaciones exteriores,Camila Wagner,Sofia Mendez,Coordinador de Proyectos,23456789-3
 Relaciones exteriores,Camila Wagner,Pedro Torres,Asistente Ejecutivo,56789012-6
+Relaciones exteriores,Camila Wagner,Juan Sanchez,Subsecretario,12345678-2
+Relaciones exteriores,Camila Wagner,Luis Ramirez,Especialista,45678901-5
+Relaciones exteriores,Camila Wagner,Camila Wagner,Ministro,01234567-1
 Defensa nacional,Luis Ramirez,Luis Ramirez,Ministro,23456789-4
 Defensa nacional,Luis Ramirez,Sofia Vega,Subsecretario,34567890-5
-Defensa nacional,Luis Ramirez,Maria Lopez,Coordinador de Proyectos,45678901-6
 Defensa nacional,Luis Ramirez,Pedro Ramirez,Coordinador de Innovacion,56789012-7
-Defensa nacional,Luis Ramirez,Carlos Rojas,Especialista,67890123-8
 Defensa nacional,Luis Ramirez,Ana Martinez,Jefe de Protocolo,78901234-9
-Hacienda,Marta Soto,Marta Soto,Ministro,45678901-6
-Hacienda,Marta Soto,Luis Gomez,Subsecretario,56789012-7
-Hacienda,Marta Soto,Jose Perez,Coordinador de Proyectos,67890123-8
-Hacienda,Marta Soto,Karen Ramirez,Asistente Ejecutivo,78901234-9
-Hacienda,Marta Soto,Sofia Mendez,Jefe de Protocolo,89012345-0
+Defensa nacional,Luis Ramirez,Carlos Rojas,Especialista,67890123-8
+Defensa nacional,Luis Ramirez,Maria Lopez,Coordinador de Proyectos,45678901-6
 Hacienda,Marta Soto,Luisa Soto,Especialista,90123456-1
-Agricultura,Carlos Perez,Carlos Perez,Ministro,67890123-8
-Agricultura,Carlos Perez,Ana Martinez,Subsecretario,78901234-9
-Agricultura,Carlos Perez,Maria Perez,Director,89012345-0
+Hacienda,Marta Soto,Luis Gomez,Subsecretario,56789012-7
+Hacienda,Marta Soto,Karen Ramirez,Asistente Ejecutivo,78901234-9
+Hacienda,Marta Soto,Jose Perez,Coordinador de Proyectos,67890123-8
+Hacienda,Marta Soto,Sofia Mendez,Jefe de Protocolo,89012345-0
+Hacienda,Marta Soto,Marta Soto,Ministro,45678901-6
 Agricultura,Carlos Perez,Karen Ramirez,Director de Finanzas,90123456-1
-Agricultura,Carlos Perez,Pedro Ramirez,Especialista,01234567-2
+Agricultura,Carlos Perez,Ana Martinez,Subsecretario,78901234-9
 Agricultura,Carlos Perez,Jose Gomez,Inspector General,12345678-3
-Mineria,Ana Gonzalez,Ana Gonzalez,Ministro,89012345-0
+Agricultura,Carlos Perez,Carlos Perez,Ministro,67890123-8
+Agricultura,Carlos Perez,Maria Perez,Director,89012345-0
+Agricultura,Carlos Perez,Pedro Ramirez,Especialista,01234567-2
 Mineria,Ana Gonzalez,Pedro Torres,Subsecretario,90123456-1
-Mineria,Ana Gonzalez,Jose Ramirez,Coordinador de Proyectos,01234567-2
-Mineria,Ana Gonzalez,Luis Gomez,Director,12345678-3
 Mineria,Ana Gonzalez,Sofia Vega,Asistente Ejecutivo,23456789-4
 Mineria,Ana Gonzalez,Maria Lopez,Especialista,34567890-5
-Deporte,Juan Ramirez,Juan Ramirez,Ministro,01234567-2
-Deporte,Juan Ramirez,Jose Lopez,Subsecretario,12345678-3
+Mineria,Ana Gonzalez,Luis Gomez,Director,12345678-3
+Mineria,Ana Gonzalez,Ana Gonzalez,Ministro,89012345-0
+Mineria,Ana Gonzalez,Jose Ramirez,Coordinador de Proyectos,01234567-2
 Deporte,Juan Ramirez,Sofia Mendez,Director,23456789-4
 Deporte,Juan Ramirez,Ana Martinez,Director de Comunicaciones,34567890-5
-Deporte,Juan Ramirez,Pedro Ramirez,Especialista,45678901-6
+Deporte,Juan Ramirez,Jose Lopez,Subsecretario,12345678-3
 Deporte,Juan Ramirez,Luis Ramirez,Asesor Legal,56789012-7
+Deporte,Juan Ramirez,Pedro Ramirez,Especialista,45678901-6
+Deporte,Juan Ramirez,Juan Ramirez,Ministro,01234567-2

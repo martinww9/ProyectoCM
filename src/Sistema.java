@@ -1,4 +1,4 @@
-
+import java.io.*;
 import java.util.*;
 
 class Sistema {
@@ -11,103 +11,102 @@ class Sistema {
     }   
     
     //Sobre carga de metodo
-public void agregarCartera(CarteraMinisterial cartera) throws CarteraExistsException {
-    String nombreCartera = cartera.getNombre();
-    
-    if (carterasMapa.containsKey(nombreCartera)) {
-        throw new CarteraExistsException("Cartera ya existente: " + nombreCartera);
-    } else {
-        carterasMapa.put(nombreCartera, cartera);
-        carteras.add(cartera);
-    }
-}
+    public void agregarCartera(CarteraMinisterial cartera) throws CarteraExistsException {
+        String nombreCartera = cartera.getNombre();
 
-    
-        public void agregarCartera(String nombreCartera) throws CarteraExistsException {
-            CarteraMinisterial nuevaCartera = new CarteraMinisterial(nombreCartera, "Sin encargado");
-            agregarCartera(nuevaCartera);
+        if (carterasMapa.containsKey(nombreCartera)) {
+            throw new CarteraExistsException("Cartera ya existente: " + nombreCartera);
+        } else {
+            carterasMapa.put(nombreCartera, cartera);
+            carteras.add(cartera);
         }
-        
-        public void mostrarCarteras() {
-    System.out.println("\nCarteras Ministeriales:");
-    for (int i = 0; i < carteras.size(); i++) {
-        System.out.println((i + 1) + ". " + carteras.get(i).toString()); // Llamada a toString
-        System.out.println(""); // Agrega una línea en blanco entre carteras
     }
-}
 
-        
-public CarteraMinisterial buscarCartera(String nombreCartera) throws CarteraNotFoundException {
-    if (carterasMapa.containsKey(nombreCartera)) {
-        System.out.println("Cartera encontrada: " + carterasMapa.get(nombreCartera).getNombre());
-        return carterasMapa.get(nombreCartera);
-    } else {
-        throw new CarteraNotFoundException("Cartera no encontrada: " + nombreCartera);
+    public void agregarCartera(String nombreCartera) throws CarteraExistsException {
+        CarteraMinisterial nuevaCartera = new CarteraMinisterial(nombreCartera, "Sin encargado");
+        agregarCartera(nuevaCartera);
     }
-}
-        
-        public CarteraMinisterial eliminarCartera(String nombreCartera) throws CarteraNotFoundException{
-            CarteraMinisterial carteraEliminada = buscarCartera(nombreCartera);
-            if(carteraEliminada == null) {
-                return null;
-            }
-            
-            carterasMapa.remove(nombreCartera);
-            
-             for (int i = 0; i < carteras.size(); i++){
-                 if(carteras.get(i).getNombre().equals(nombreCartera)) {
-                    carteras.remove(i);
-                    break; 
-                 }
+
+    public void mostrarCarteras() {
+        System.out.println("\nCarteras Ministeriales:");
+        for (int i = 0; i < carteras.size(); i++) {
+            System.out.println((i + 1) + ". " + carteras.get(i).toString()); // Llamada a toString
+            System.out.println(""); // Agrega una línea en blanco entre carteras
+        }
+    }
+
+    public CarteraMinisterial buscarCartera(String nombreCartera) throws CarteraNotFoundException {
+        if (carterasMapa.containsKey(nombreCartera)) {
+            System.out.println("Cartera encontrada: " + carterasMapa.get(nombreCartera).getNombre());
+            return carterasMapa.get(nombreCartera);
+        } else {
+            throw new CarteraNotFoundException("Cartera no encontrada: " + nombreCartera);
+        }
+    }
+
+    public CarteraMinisterial eliminarCartera(String nombreCartera) throws CarteraNotFoundException{
+        CarteraMinisterial carteraEliminada = buscarCartera(nombreCartera);
+        if(carteraEliminada == null) {
+            return null;
+        }
+
+        carterasMapa.remove(nombreCartera);
+
+         for (int i = 0; i < carteras.size(); i++){
+             if(carteras.get(i).getNombre().equals(nombreCartera)) {
+                carteras.remove(i);
+                break; 
              }
-             System.out.println("Cartera eliminada con exito");
-             return carteraEliminada;
+         }
+         System.out.println("Cartera eliminada con exito");
+         return carteraEliminada;
+    }
+
+    public void agregarFuncionarioCarteraEspecifica(String nombreFuncionario, String cargo, String id, String nombreCartera) throws CarteraNotFoundException, FuncionarioExistsException {
+        if (carterasMapa.containsKey(nombreCartera)) {
+            Funcionario funcionario = new Funcionario(nombreFuncionario, cargo, id);
+            carterasMapa.get(nombreCartera).agregarFuncionario(funcionario);
+        } else {
+            throw new CarteraNotFoundException("Cartera no encontrada: " + nombreCartera);
         }
+    }
 
-        public void agregarFuncionarioCarteraEspecifica(String nombreFuncionario, String cargo, String id, String nombreCartera) throws CarteraNotFoundException, FuncionarioExistsException {
-            if (carterasMapa.containsKey(nombreCartera)) {
-                Funcionario funcionario = new Funcionario(nombreFuncionario, cargo, id);
-                carterasMapa.get(nombreCartera).agregarFuncionario(funcionario);
-            } else {
-                throw new CarteraNotFoundException("Cartera no encontrada: " + nombreCartera);
-            }
-        }
-        
-        public void reubicarFuncionario(String idFuncionario, String nombreCarteraActual, String nombreCarteraDestino) throws CarteraNotFoundException, FuncionarioNotFoundException, FuncionarioExistsException {
-            CarteraMinisterial carteraActual = buscarCartera(nombreCarteraActual);
-            CarteraMinisterial carteraDestino = buscarCartera(nombreCarteraDestino);
+    public void reubicarFuncionario(String idFuncionario, String nombreCarteraActual, String nombreCarteraDestino) throws CarteraNotFoundException, FuncionarioNotFoundException, FuncionarioExistsException {
+        CarteraMinisterial carteraActual = buscarCartera(nombreCarteraActual);
+        CarteraMinisterial carteraDestino = buscarCartera(nombreCarteraDestino);
 
-            if (carteraActual != null && carteraDestino != null) {
-                    Funcionario funcionario = carteraActual.buscarFuncionario(idFuncionario);
-                    if (funcionario != null) {
-                        // Eliminar el funcionario de la cartera de origen
-                        carteraActual.eliminarFuncionario(idFuncionario);
-
-                        // Agregar el funcionario a la cartera de destino
-                        carteraDestino.agregarFuncionario(funcionario);
-
-                        System.out.println("Funcionario reubicado con éxito.");
-                    } else {
-                        System.out.println("Funcionario no encontrado en la cartera de origen.");
-                    }
-                } else {
-                System.out.println("Una de las carteras especificadas no existe.");
-            }
-        }
-        
-        public void cambiarCargoFuncionario(String idFuncionario, String cargoNuevo) throws FuncionarioNotFoundException {
-            boolean encontrado = false;
-            
-                Funcionario funcionario = buscarFuncionarioEnTodasLasCarteras(idFuncionario);
+        if (carteraActual != null && carteraDestino != null) {
+                Funcionario funcionario = carteraActual.buscarFuncionario(idFuncionario);
                 if (funcionario != null) {
-                    funcionario.setCargo(cargoNuevo);
-                    encontrado = true;
+                    // Eliminar el funcionario de la cartera de origen
+                    carteraActual.eliminarFuncionario(idFuncionario);
+
+                    // Agregar el funcionario a la cartera de destino
+                    carteraDestino.agregarFuncionario(funcionario);
+
+                    System.out.println("Funcionario reubicado con éxito.");
+                } else {
+                    System.out.println("Funcionario no encontrado en la cartera de origen.");
                 }
-            if (!encontrado) {
-                throw new FuncionarioNotFoundException("Funcionario no encontrado de ID: " + idFuncionario);
+            } else {
+            System.out.println("Una de las carteras especificadas no existe.");
+        }
+    }
+
+    public void cambiarCargoFuncionario(String idFuncionario, String cargoNuevo) throws FuncionarioNotFoundException {
+        boolean encontrado = false;
+
+            Funcionario funcionario = buscarFuncionarioEnTodasLasCarteras(idFuncionario);
+            if (funcionario != null) {
+                funcionario.setCargo(cargoNuevo);
+                encontrado = true;
             }
-}
-        public void cargarDatosDesdeCSV()throws CarteraExistsException, CarteraNotFoundException, FuncionarioExistsException {
+        if (!encontrado) {
+            throw new FuncionarioNotFoundException("Funcionario no encontrado de ID: " + idFuncionario);
+        }
+    }
+
+    public void cargarDatosDesdeCSV()throws CarteraExistsException, CarteraNotFoundException, FuncionarioExistsException {
        Set<String> carterasAgregadas = new HashSet<>();
        List<String[]> datos = CSVDataManager.cargarDatos();
 
@@ -135,68 +134,87 @@ public CarteraMinisterial buscarCartera(String nombreCartera) throws CarteraNotF
             }
         }
     }
-        
-     public List<Funcionario> buscarFuncionariosPorCargoEnTodasLasCarteras(String cargo) {
-        List<Funcionario> funcionariosEncontrados = new ArrayList<>();
+
+    public List<Funcionario> buscarFuncionariosPorCargoEnTodasLasCarteras(String cargo) {
+       List<Funcionario> funcionariosEncontrados = new ArrayList<>();
+       for (CarteraMinisterial cartera : carteras) {
+           List<Funcionario> funcionariosFiltrados = cartera.filtrarFuncionariosPorCargo(cargo);
+           funcionariosEncontrados.addAll(funcionariosFiltrados);
+       }
+       return funcionariosEncontrados;
+    }
+
+    public List<CarteraMinisterial> obtenerCarteras() {
+        return new ArrayList<>(carterasMapa.values());              
+    }
+
+    public Funcionario buscarFuncionarioEnTodasLasCarteras(String idFuncionario) throws FuncionarioNotFoundException {
         for (CarteraMinisterial cartera : carteras) {
-            List<Funcionario> funcionariosFiltrados = cartera.filtrarFuncionariosPorCargo(cargo);
-            funcionariosEncontrados.addAll(funcionariosFiltrados);
-        }
-        return funcionariosEncontrados;
-    }
-
-        public List<CarteraMinisterial> obtenerCarteras() {
-    return new ArrayList<>(carterasMapa.values());
-                    
-    }
-        
-public Funcionario buscarFuncionarioEnTodasLasCarteras(String idFuncionario) throws FuncionarioNotFoundException {
-    for (CarteraMinisterial cartera : carteras) {
-        try {
-            Funcionario funcionario = cartera.buscarFuncionario(idFuncionario);
-            if (funcionario != null) {
-                return funcionario;
-            }
-        } catch (FuncionarioNotFoundException ex) {
-         }
-    }
-    throw new FuncionarioNotFoundException("Funcionario no encontrado en ninguna cartera.");
-}
-
-public CarteraMinisterial obtenerCarteraDelFuncionario(String idFuncionario) throws FuncionarioNotFoundException {
-    for (CarteraMinisterial cartera : carteras) {
-        try {
-        Funcionario funcionario = cartera.buscarFuncionario(idFuncionario);
-        if (funcionario != null) {
-            return cartera;
-        }
+            try {
+                Funcionario funcionario = cartera.buscarFuncionario(idFuncionario);
+                if (funcionario != null) {
+                    return funcionario;
+                }
             } catch (FuncionarioNotFoundException ex) {
              }
+        }
+        throw new FuncionarioNotFoundException("Funcionario no encontrado en ninguna cartera.");
     }
-    throw new FuncionarioNotFoundException("Funcionario no encontrado en ninguna cartera.");
-}
-        
-public void guardarDatosACSV() {
-    List<String[]> datos = new ArrayList<>();
 
-    for (CarteraMinisterial cartera : carteras) {
-        String nombreCartera = cartera.getNombre();
-        String encargado = cartera.getEncargado();
+    public CarteraMinisterial obtenerCarteraDelFuncionario(String idFuncionario) throws FuncionarioNotFoundException {
+        for (CarteraMinisterial cartera : carteras) {
+            try {
+            Funcionario funcionario = cartera.buscarFuncionario(idFuncionario);
+            if (funcionario != null) {
+                return cartera;
+            }
+                } catch (FuncionarioNotFoundException ex) {
+                 }
+        }
+        throw new FuncionarioNotFoundException("Funcionario no encontrado en ninguna cartera.");
+    }
 
-        List<Funcionario> funcionarios = cartera.obtenerFuncionarios();
+    public void generarReporte(){
+        //List<CarteraMinisterial> carteras = obtenerCarteras();
+        int cantCarteras = carteras.size();
+        String lineas[] = new String[cantCarteras];
+        lineas[0] = "Cantidad de carteras: ";
+        try{
+            FileWriter archivo = new FileWriter("reporte.txt");
+            BufferedWriter escritor = new BufferedWriter(archivo);
 
-        for (Funcionario funcionario : funcionarios) {
-            String nombreFuncionario = funcionario.getNombre();
-            String cargoFuncionario = funcionario.getCargo();
-            String idFuncionario = funcionario.getID();
+            for (String linea : lineas){
+                escritor.write(linea);
+                escritor.newLine();
+            }
+            escritor.close();
+            System.out.println("El archivo se ha exportado con exito.");
+        }catch (IOException e){
+            System.err.println("Error al exportar el archivo: " + e.getMessage());
 
-            String[] fila = {nombreCartera, encargado, nombreFuncionario, cargoFuncionario, idFuncionario};
-            datos.add(fila);
         }
     }
 
-    CSVDataManager.guardarDatos(datos);
-    System.out.println("Datos guardados en el archivo CSV.");
-}
+    public void guardarDatosACSV() {
+        List<String[]> datos = new ArrayList<>();
 
+        for (CarteraMinisterial cartera : carteras) {
+            String nombreCartera = cartera.getNombre();
+            String encargado = cartera.getEncargado();
+
+            List<Funcionario> funcionarios = cartera.obtenerFuncionarios();
+
+            for (Funcionario funcionario : funcionarios) {
+                String nombreFuncionario = funcionario.getNombre();
+                String cargoFuncionario = funcionario.getCargo();
+                String idFuncionario = funcionario.getID();
+
+                String[] fila = {nombreCartera, encargado, nombreFuncionario, cargoFuncionario, idFuncionario};
+                datos.add(fila);
+            }
+        }
+
+        CSVDataManager.guardarDatos(datos);
+        System.out.println("Datos guardados en el archivo CSV.");
+    }
 }
