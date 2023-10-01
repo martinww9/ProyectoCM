@@ -175,22 +175,107 @@ class Sistema {
     }
 
     public void generarReporte() {
-        List<CarteraMinisterial> carteras = obtenerCarteras();
         int cantCarteras = carteras.size();
-        String[] lineas = new String[cantCarteras + 2];
-        lineas[0] = "Nombre de las carteras: ";
-        int i = 1;
-        for (CarteraMinisterial cartera : carteras){
-            lineas[i] = "- " + cartera.getNombre();
-            i++;
+        String[] lineas = new String[cantCarteras + 1000]; // Aumentamos el tamaño para permitir más líneas decorativas.
+
+        lineas[0] = "REPORTE FINAL"; // Encabezado
+        lineas[1] = "====================";
+
+        // Estadísticas de Funcionarios por Cargo
+            Map<String, Integer> funcionariosPorCargo = new HashMap<>();
+            for (CarteraMinisterial cartera : carteras) {
+                List<Funcionario> funcionarios = cartera.obtenerFuncionarios();
+                for (Funcionario funcionario : funcionarios) {
+                    String cargo = funcionario.getCargo();
+                    if (funcionariosPorCargo.containsKey(cargo)) {
+                        funcionariosPorCargo.put(cargo, funcionariosPorCargo.get(cargo) + 1);
+                    } else {
+                        funcionariosPorCargo.put(cargo, 1);
+                    }
+                }
+            }
+
+        lineas[3] = "Cantidad de Funcionarios por Cargo:";
+        lineas[4] = "-----------------------------------";
+
+        int index = 5;
+        for (String cargo : funcionariosPorCargo.keySet()) {
+            int cantidad = funcionariosPorCargo.get(cargo);
+            lineas[index++] = cargo + ": " + cantidad;
         }
-                
+
+        // Estadísticas de Funcionarios por Cartera
+        lineas[index++] = "";
+        lineas[index++] = "Cantidad de Funcionarios por Cartera:";
+        lineas[index++] = "--------------------------------------";
+
+        int carteraConMasFuncionarios = 0;
+        int carteraConMenosFuncionarios = 9999999;
+        String nombreCarteraMasFuncionarios = "";
+        String nombreCarteraMenosFuncionarios = "";
+
+        for (CarteraMinisterial cartera : carteras) {
+            List<Funcionario> funcionarios = cartera.obtenerFuncionarios();
+            int cantidadFuncionarios = funcionarios.size();
+            lineas[index++] = cartera.getNombre() + ": " + cantidadFuncionarios;
+
+            // Actualizar estadísticas de carteras
+            if (cantidadFuncionarios > carteraConMasFuncionarios) {
+                carteraConMasFuncionarios = cantidadFuncionarios;
+                nombreCarteraMasFuncionarios = cartera.getNombre();
+            }
+            if (cantidadFuncionarios < carteraConMenosFuncionarios) {
+                carteraConMenosFuncionarios = cantidadFuncionarios;
+                nombreCarteraMenosFuncionarios = cartera.getNombre();
+            }
+        }
+
+        // Cartera con más Funcionarios
+        lineas[index++] = "";
+        lineas[index++] = "Cartera con más Funcionarios:";
+        lineas[index++] = "-----------------------------";
+        lineas[index++] = nombreCarteraMasFuncionarios + " (" + carteraConMasFuncionarios + " funcionarios)";
+
+        // Cartera con menos Funcionarios
+        lineas[index++] = "";
+        lineas[index++] = "Cartera con menos Funcionarios:";
+        lineas[index++] = "--------------------------------";
+        lineas[index++] = nombreCarteraMenosFuncionarios + " (" + carteraConMenosFuncionarios + " funcionarios)";
+
+        // Lista de Carteras Ministeriales
+        lineas[index++] = "";
+        lineas[index++] = "Lista de Carteras Ministeriales:";
+        lineas[index++] = "--------------------------------";
+
+        for (CarteraMinisterial cartera : carteras) {
+            lineas[index++] = "Cartera: " + cartera.getNombre();
+            lineas[index++] = "Encargado: " + cartera.getEncargado();
+            lineas[index++] = "";
+        }
+
+        // Lista de Funcionarios por Cartera
+        lineas[index++] = "";
+        lineas[index++] = "Lista de Funcionarios por Cartera:";
+        lineas[index++] = "----------------------------------";
+
+        for (CarteraMinisterial cartera : carteras) {
+            lineas[index++] = "Cartera: " + cartera.getNombre();
+            List<Funcionario> funcionarios = cartera.obtenerFuncionarios();
+            for (Funcionario funcionario : funcionarios) {
+                lineas[index++] = "Nombre: " + funcionario.getNombre();
+                lineas[index++] = "Cargo: " + funcionario.getCargo();
+                lineas[index++] = "ID: " + funcionario.getID();
+                lineas[index++] = "";
+            }
+        }
+
         try {
             FileWriter archivo = new FileWriter("reporte.txt");
             BufferedWriter escritor = new BufferedWriter(archivo);
 
-            for (String linea : lineas) {
-                if (linea != null) { // Verifica si la línea no es nula
+            for
+    (String linea : lineas) {
+                if (linea != null) {
                     escritor.write(linea);
                     escritor.newLine();
                 }
@@ -199,8 +284,8 @@ class Sistema {
             System.out.println("El archivo se ha exportado con éxito.");
         } catch (IOException e) {
             System.err.println("Error al exportar el archivo: " + e.getMessage());
-            }
         }
+    }
 
     public void guardarDatosACSV() {
         List<String[]> datos = new ArrayList<>();

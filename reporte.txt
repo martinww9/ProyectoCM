@@ -1,16 +1,470 @@
-Nombre de las carteras: 
-- Bienes nacionales
-- Agricultura
-- Relaciones exteriores
-- Vivienda
-- Transporte
-- Salud
-- Energ?a
-- Medioambiente
-- Cultura
-- Econom?a
-- Defensa nacional
-- Educaci?n
-- Deporte
-- Hacienda
-- Mineria
+REPORTE FINAL
+====================
+Cantidad de Funcionarios por Cargo:
+-----------------------------------
+Especialista: 17
+Director de Asuntos Legislativos: 1
+Coordinador de Proyectos: 6
+Jefe de Protocolo: 4
+Coordinador de Innovacion: 3
+Director: 11
+Asistente Ejecutivo: 5
+Asesor Legal: 2
+Ministro: 15
+Analista de Datos: 3
+Director de Comunicaciones: 2
+Director de Finanzas: 3
+Inspector General: 3
+Subsecretario: 15
+
+Cantidad de Funcionarios por Cartera:
+--------------------------------------
+Cultura: 6
+Energ?a: 6
+Econom?a: 6
+Transporte: 6
+Vivienda: 6
+Salud: 6
+Educaci?n: 6
+Bienes nacionales: 6
+Medioambiente: 6
+Relaciones exteriores: 6
+Defensa nacional: 6
+Hacienda: 6
+Agricultura: 6
+Mineria: 6
+Deporte: 6
+
+Cartera con más Funcionarios:
+-----------------------------
+Cultura (6 funcionarios)
+
+Cartera con menos Funcionarios:
+--------------------------------
+Cultura (6 funcionarios)
+
+Lista de Carteras Ministeriales:
+--------------------------------
+Cartera: Cultura
+Encargado: Luisa Torres
+
+Cartera: Energ?a
+Encargado: Carlos Rojas
+
+Cartera: Econom?a
+Encargado: Ana Sanchez
+
+Cartera: Transporte
+Encargado: Jose Perez
+
+Cartera: Vivienda
+Encargado: Karen Rojas
+
+Cartera: Salud
+Encargado: Sofia Mendez
+
+Cartera: Educaci?n
+Encargado: Pedro Torres
+
+Cartera: Bienes nacionales
+Encargado: Andrea Quinteros
+
+Cartera: Medioambiente
+Encargado: Karen Iba?ez
+
+Cartera: Relaciones exteriores
+Encargado: Camila Wagner
+
+Cartera: Defensa nacional
+Encargado: Luis Ramirez
+
+Cartera: Hacienda
+Encargado: Marta Soto
+
+Cartera: Agricultura
+Encargado: Carlos Perez
+
+Cartera: Mineria
+Encargado: Ana Gonzalez
+
+Cartera: Deporte
+Encargado: Juan Ramirez
+
+
+Lista de Funcionarios por Cartera:
+----------------------------------
+Cartera: Cultura
+Nombre: Luis Torres
+Cargo: Ministro
+ID: 23456789-2
+
+Nombre: Ana Gonzalez
+Cargo: Subsecretario
+ID: 34567890-3
+
+Nombre: Ana Martinez
+Cargo: Director de Comunicaciones
+ID: 56789012-5
+
+Nombre: Jose Perez
+Cargo: Especialista
+ID: 67890123-6
+
+Nombre: Pedro Torres
+Cargo: Asesor Legal
+ID: 78901234-7
+
+Nombre: Luis Ramirez
+Cargo: Director
+ID: 45678901-4
+
+Cartera: Energ?a
+Nombre: Pedro Ramirez
+Cargo: Subsecretario
+ID: 56789012-5
+
+Nombre: Maria Lopez
+Cargo: Coordinador de Proyectos
+ID: 67890123-6
+
+Nombre: Andres Gonzalez
+Cargo: Director
+ID: 78901234-7
+
+Nombre: Karen Ramirez
+Cargo: Especialista
+ID: 90123456-9
+
+Nombre: Carlos Rojas
+Cargo: Ministro
+ID: 45678901-4
+
+Nombre: Luis Rojas
+Cargo: Asistente Ejecutivo
+ID: 89012345-8
+
+Cartera: Econom?a
+Nombre: Ana Gonzalez
+Cargo: Director de Finanzas
+ID: 01234567-0
+
+Nombre: Luisa Soto
+Cargo: Subsecretario
+ID: 56789012-6
+
+Nombre: Pedro Torres
+Cargo: Ministro
+ID: 67890123-6
+
+Nombre: Maria Perez
+Cargo: Jefe de Protocolo
+ID: 34567890-7
+
+Nombre: Jose Gomez
+Cargo: Analista de Datos
+ID: 23456789-8
+
+Nombre: Karen Rojas
+Cargo: Especialista
+ID: 12345678-9
+
+Cartera: Transporte
+Nombre: Sofia Vega
+Cargo: Especialista
+ID: 56789012-3
+
+Nombre: Luis Ramirez
+Cargo: Subsecretario
+ID: 90123456-9
+
+Nombre: Luis Rojas
+Cargo: Especialista
+ID: 45678901-2
+
+Nombre: Jose Perez
+Cargo: Ministro
+ID: 89012345-8
+
+Nombre: Sofia Mendez
+Cargo: Director
+ID: 23456789-0
+
+Nombre: Andres Gonzalez
+Cargo: Director
+ID: 34567890-1
+
+Cartera: Vivienda
+Nombre: Karen Rojas
+Cargo: Ministro
+ID: 01234567-0
+
+Nombre: Maria Perez
+Cargo: Director
+ID: 23456789-2
+
+Nombre: Sofia Mendez
+Cargo: Director
+ID: 34567890-3
+
+Nombre: Pedro Ramirez
+Cargo: Especialista
+ID: 56789012-5
+
+Nombre: Luis Ramirez
+Cargo: Subsecretario
+ID: 12345678-1
+
+Nombre: Carlos Rojas
+Cargo: Especialista
+ID: 45678901-4
+
+Cartera: Salud
+Nombre: Pedro Ramirez
+Cargo: Subsecretario
+ID: 34567890-4
+
+Nombre: Sofia Mendez
+Cargo: Ministro
+ID: 23456789-3
+
+Nombre: Ana Martinez
+Cargo: Analista de Datos
+ID: 56789012-6
+
+Nombre: Sofia Vega
+Cargo: Director de Finanzas
+ID: 78901234-8
+
+Nombre: Maria Perez
+Cargo: Especialista
+ID: 67890123-7
+
+Nombre: Luis Ramirez
+Cargo: Jefe de Protocolo
+ID: 45678901-5
+
+Cartera: Educaci?n
+Nombre: Luisa Torres
+Cargo: Especialista
+ID: 89012345-9
+
+Nombre: Ana Martinez
+Cargo: Especialista
+ID: 90123456-0
+
+Nombre: Luisa Soto
+Cargo: Subsecretario
+ID: 56789012-6
+
+Nombre: Jose Perez
+Cargo: Director
+ID: 78901234-8
+
+Nombre: Sofia Vega
+Cargo: Director
+ID: 67890123-7
+
+Nombre: Pedro Torres
+Cargo: Ministro
+ID: 45678901-5
+
+Cartera: Bienes nacionales
+Nombre: Maria Perez
+Cargo: Inspector General
+ID: 89012345-9
+
+Nombre: Pedro Ramirez
+Cargo: Asistente Ejecutivo
+ID: 90123456-0
+
+Nombre: Carlos Torres
+Cargo: Subsecretario
+ID: 78901234-8
+
+Nombre: Luis Rojas
+Cargo: Especialista
+ID: 12345678-2
+
+Nombre: Andrea Quinteros
+Cargo: Ministro
+ID: 67890123-7
+
+Nombre: Luis Ramirez
+Cargo: Analista de Datos
+ID: 01234567-1
+
+Cartera: Medioambiente
+Nombre: Karen Iba?ez
+Cargo: Ministro
+ID: 89012345-9
+
+Nombre: Ana Martinez
+Cargo: Coordinador de Innovacion
+ID: 34567890-4
+
+Nombre: Pedro Torres
+Cargo: Subsecretario
+ID: 90123456-0
+
+Nombre: Luis Ramirez
+Cargo: Inspector General
+ID: 23456789-3
+
+Nombre: Carlos Rojas
+Cargo: Director de Asuntos Legislativos
+ID: 12345678-2
+
+Nombre: Sofia Vega
+Cargo: Coordinador de Proyectos
+ID: 01234567-1
+
+Cartera: Relaciones exteriores
+Nombre: Ana Gonzalez
+Cargo: Coordinador de Innovacion
+ID: 34567890-4
+
+Nombre: Sofia Mendez
+Cargo: Coordinador de Proyectos
+ID: 23456789-3
+
+Nombre: Pedro Torres
+Cargo: Asistente Ejecutivo
+ID: 56789012-6
+
+Nombre: Juan Sanchez
+Cargo: Subsecretario
+ID: 12345678-2
+
+Nombre: Luis Ramirez
+Cargo: Especialista
+ID: 45678901-5
+
+Nombre: Camila Wagner
+Cargo: Ministro
+ID: 01234567-1
+
+Cartera: Defensa nacional
+Nombre: Luis Ramirez
+Cargo: Ministro
+ID: 23456789-4
+
+Nombre: Sofia Vega
+Cargo: Subsecretario
+ID: 34567890-5
+
+Nombre: Pedro Ramirez
+Cargo: Coordinador de Innovacion
+ID: 56789012-7
+
+Nombre: Ana Martinez
+Cargo: Jefe de Protocolo
+ID: 78901234-9
+
+Nombre: Carlos Rojas
+Cargo: Especialista
+ID: 67890123-8
+
+Nombre: Maria Lopez
+Cargo: Coordinador de Proyectos
+ID: 45678901-6
+
+Cartera: Hacienda
+Nombre: Luisa Soto
+Cargo: Especialista
+ID: 90123456-1
+
+Nombre: Luis Gomez
+Cargo: Subsecretario
+ID: 56789012-7
+
+Nombre: Karen Ramirez
+Cargo: Asistente Ejecutivo
+ID: 78901234-9
+
+Nombre: Jose Perez
+Cargo: Coordinador de Proyectos
+ID: 67890123-8
+
+Nombre: Sofia Mendez
+Cargo: Jefe de Protocolo
+ID: 89012345-0
+
+Nombre: Marta Soto
+Cargo: Ministro
+ID: 45678901-6
+
+Cartera: Agricultura
+Nombre: Karen Ramirez
+Cargo: Director de Finanzas
+ID: 90123456-1
+
+Nombre: Ana Martinez
+Cargo: Subsecretario
+ID: 78901234-9
+
+Nombre: Jose Gomez
+Cargo: Inspector General
+ID: 12345678-3
+
+Nombre: Carlos Perez
+Cargo: Ministro
+ID: 67890123-8
+
+Nombre: Maria Perez
+Cargo: Director
+ID: 89012345-0
+
+Nombre: Pedro Ramirez
+Cargo: Especialista
+ID: 01234567-2
+
+Cartera: Mineria
+Nombre: Pedro Torres
+Cargo: Subsecretario
+ID: 90123456-1
+
+Nombre: Sofia Vega
+Cargo: Asistente Ejecutivo
+ID: 23456789-4
+
+Nombre: Maria Lopez
+Cargo: Especialista
+ID: 34567890-5
+
+Nombre: Luis Gomez
+Cargo: Director
+ID: 12345678-3
+
+Nombre: Ana Gonzalez
+Cargo: Ministro
+ID: 89012345-0
+
+Nombre: Jose Ramirez
+Cargo: Coordinador de Proyectos
+ID: 01234567-2
+
+Cartera: Deporte
+Nombre: Sofia Mendez
+Cargo: Director
+ID: 23456789-4
+
+Nombre: Ana Martinez
+Cargo: Director de Comunicaciones
+ID: 34567890-5
+
+Nombre: Jose Lopez
+Cargo: Subsecretario
+ID: 12345678-3
+
+Nombre: Luis Ramirez
+Cargo: Asesor Legal
+ID: 56789012-7
+
+Nombre: Pedro Ramirez
+Cargo: Especialista
+ID: 45678901-6
+
+Nombre: Juan Ramirez
+Cargo: Ministro
+ID: 01234567-2
+
