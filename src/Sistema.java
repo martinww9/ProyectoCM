@@ -106,31 +106,40 @@ class Sistema {
         }
     }
 
-    public void cargarDatosDesdeCSV()throws CarteraExistsException, CarteraNotFoundException, FuncionarioExistsException {
-       Set<String> carterasAgregadas = new HashSet<>();
-       List<String[]> datos = CSVDataManager.cargarDatos();
+    public void cargarDatosDesdeCSV() throws CarteraExistsException, CarteraNotFoundException, FuncionarioExistsException {
+        Set<String> carterasAgregadas = new HashSet<>();
+        List<String[]> datos = CSVDataManager.cargarDatos();
 
-       for (String[] fila : datos) {
-           String nombreCartera = fila[0];
-           String encargado = fila[1];
-           String nombreFuncionario = fila[2];
-           String cargoFuncionario = fila[3];
-           String idFuncionario = fila[4];
+        for (String[] fila : datos) {
+            if (fila.length >= 2) { // Verifica que haya al menos 2 elementos en la fila (nombre de cartera y encargado)
+                String nombreCartera = fila[0];
+                String encargado = fila[1];
 
-           // Verificar si la cartera y el encargado ya han sido agregados
-           String carteraEncargadoKey = nombreCartera;
+                // Verificar si la cartera y el encargado ya han sido agregados
+                String carteraEncargadoKey = nombreCartera;
 
-           if (carterasAgregadas.contains(carteraEncargadoKey)) {
-               // La cartera ya existe, agrega el funcionario a esa cartera
-               agregarFuncionarioCarteraEspecifica(nombreFuncionario, cargoFuncionario, idFuncionario, nombreCartera);
-           } else {
-               // La cartera no existe, crea la cartera y agrega el funcionario
-               CarteraMinisterial carteraAux = new CarteraMinisterial(nombreCartera, encargado);
-               agregarCartera(carteraAux);
-               agregarFuncionarioCarteraEspecifica(nombreFuncionario, cargoFuncionario, idFuncionario, nombreCartera);
+                if (!carterasAgregadas.contains(carteraEncargadoKey)) {
+                    // La cartera no existe, crea la cartera
+                    CarteraMinisterial carteraAux = new CarteraMinisterial(nombreCartera, encargado);
+                    agregarCartera(carteraAux);
 
-               // Agrega la cartera y el encargado al conjunto de seguimiento
-               carterasAgregadas.add(carteraEncargadoKey);
+                    // Agrega la cartera y el encargado al conjunto de seguimiento
+                    carterasAgregadas.add(carteraEncargadoKey);
+                }
+
+                if (fila.length >= 5) { // Si hay suficientes elementos para funcionarios
+                    String nombreFuncionario = fila[2];
+                    String cargoFuncionario = fila[3];
+                    String idFuncionario = fila[4];
+
+                    // Agrega el funcionario solo si los campos no están vacíos
+                    if (!nombreFuncionario.isEmpty() && !cargoFuncionario.isEmpty() && !idFuncionario.isEmpty()) {
+                        agregarFuncionarioCarteraEspecifica(nombreFuncionario, cargoFuncionario, idFuncionario, nombreCartera);
+                    }
+                }
+            } else {
+                // Manejar el caso en el que la fila no tenga suficientes elementos
+                System.err.println("Error: la fila del archivo CSV no tiene suficientes elementos.");
             }
         }
     }
@@ -294,6 +303,10 @@ class Sistema {
             String nombreCartera = cartera.getNombre();
             String encargado = cartera.getEncargado();
 
+            // Crear una entrada para la cartera incluso si no hay funcionarios
+            String[] carteraInfo = {nombreCartera, encargado, "", "", ""};
+            datos.add(carteraInfo);
+
             List<Funcionario> funcionarios = cartera.obtenerFuncionarios();
 
             for (Funcionario funcionario : funcionarios) {
@@ -307,6 +320,5 @@ class Sistema {
         }
 
         CSVDataManager.guardarDatos(datos);
-        System.out.println("Datos guardados en el archivo CSV.");
     }
 }

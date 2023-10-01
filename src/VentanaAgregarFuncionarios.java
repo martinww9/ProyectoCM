@@ -206,7 +206,13 @@ public class VentanaAgregarFuncionarios extends javax.swing.JFrame {
             String idFuncionario = jTextField3.getText();
             String nombreCartera = jTextField4.getText();
             CarteraMinisterial cartera = sistema.buscarCartera(nombreCartera);
-            cartera.agregarFuncionario(nombreFuncionario, cargoFuncionario, idFuncionario);
+            if(cargoFuncionario.equals("")){
+               cartera.agregarFuncionario(nombreFuncionario, idFuncionario); 
+            }
+            else {
+                Funcionario funcionario = new Funcionario(nombreFuncionario, cargoFuncionario, idFuncionario);
+                cartera.agregarFuncionario(funcionario);
+            }
             JOptionPane.showMessageDialog(this, "Funcionario agregado con éxito: " + nombreFuncionario, "Éxito", JOptionPane.INFORMATION_MESSAGE);
         } catch (CarteraNotFoundException ex) {
             JOptionPane.showMessageDialog(this, "Error: Cartera no encontrada.", "Error", JOptionPane.ERROR_MESSAGE);

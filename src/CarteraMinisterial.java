@@ -35,16 +35,6 @@ class CarteraMinisterial {
         return "Cartera: " + nombre + "\nEncargado: " + encargado;
     }
     
-  /*  public void mostrarFuncionarios() {
-        System.out.println("Funcionarios:");
-        for (int i= 0; i < funcionarios.size(); i++) {
-            System.out.print((i+1) + ") " + funcionarios.get(i).getNombre());
-            System.out.print(" Cargo: " + funcionarios.get(i).getCargo());
-            System.out.println( " ID: " + funcionarios.get(i).getID());
-        }
-    }
-    
-    */
     public void mostrarFuncionarios() {
     //System.out.println("Funcionarios:");
     for (Funcionario funcionario : funcionarios) {
@@ -54,17 +44,15 @@ class CarteraMinisterial {
 }
 
     
-    public void agregarFuncionario(String nombreFuncionario, String cargo, String id) throws FuncionarioExistsException {
+    public void agregarFuncionario(String nombreFuncionario, String idFuncionario) throws FuncionarioExistsException {
         
-            for (Funcionario funcionario : funcionarios) {
-            if (funcionario.getID().equals(id)) {
-                throw new FuncionarioExistsException("Funcionario con el mismo ID ya existe en la cartera.");
-            }
+        if (funcionariosMapa.containsKey(idFuncionario)) {
+            throw new FuncionarioExistsException("Funcionario con el mismo ID ya existe en la cartera.");
+        } else {
+            Funcionario funcionario = new Funcionario(nombreFuncionario, "Sin cargo", idFuncionario);
+            funcionariosMapa.put(idFuncionario, funcionario);
+            funcionarios.add(funcionario);
         }
-
-        Funcionario funcionario = new Funcionario(nombreFuncionario, cargo, id);
-        funcionariosMapa.put(id, funcionario);
-        funcionarios.add(funcionario);
 }
 
     public void agregarFuncionario(Funcionario funcionario) throws FuncionarioExistsException {
@@ -77,6 +65,7 @@ class CarteraMinisterial {
             funcionarios.add(funcionario);
         }
     }
+    
     public Funcionario buscarFuncionario(String id) throws FuncionarioNotFoundException {
         if (funcionariosMapa.containsKey(id)) {
             System.out.println("Funcionario encontrado: " + funcionariosMapa.get(id).getNombre());
