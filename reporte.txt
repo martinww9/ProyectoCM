@@ -1,0 +1,16 @@
+Nombre de las carteras: 
+- Bienes nacionales
+- Agricultura
+- Relaciones exteriores
+- Vivienda
+- Transporte
+- Salud
+- Energ?a
+- Medioambiente
+- Cultura
+- Econom?a
+- Defensa nacional
+- Educaci?n
+- Deporte
+- Hacienda
+- Mineria

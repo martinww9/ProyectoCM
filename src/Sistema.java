@@ -174,26 +174,33 @@ class Sistema {
         throw new FuncionarioNotFoundException("Funcionario no encontrado en ninguna cartera.");
     }
 
-    public void generarReporte(){
-        //List<CarteraMinisterial> carteras = obtenerCarteras();
+    public void generarReporte() {
+        List<CarteraMinisterial> carteras = obtenerCarteras();
         int cantCarteras = carteras.size();
-        String lineas[] = new String[cantCarteras];
-        lineas[0] = "Cantidad de carteras: ";
-        try{
+        String[] lineas = new String[cantCarteras + 2];
+        lineas[0] = "Nombre de las carteras: ";
+        int i = 1;
+        for (CarteraMinisterial cartera : carteras){
+            lineas[i] = "- " + cartera.getNombre();
+            i++;
+        }
+                
+        try {
             FileWriter archivo = new FileWriter("reporte.txt");
             BufferedWriter escritor = new BufferedWriter(archivo);
 
-            for (String linea : lineas){
-                escritor.write(linea);
-                escritor.newLine();
+            for (String linea : lineas) {
+                if (linea != null) { // Verifica si la línea no es nula
+                    escritor.write(linea);
+                    escritor.newLine();
+                }
             }
             escritor.close();
-            System.out.println("El archivo se ha exportado con exito.");
-        }catch (IOException e){
+            System.out.println("El archivo se ha exportado con éxito.");
+        } catch (IOException e) {
             System.err.println("Error al exportar el archivo: " + e.getMessage());
-
+            }
         }
-    }
 
     public void guardarDatosACSV() {
         List<String[]> datos = new ArrayList<>();
