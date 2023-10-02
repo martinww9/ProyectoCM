@@ -34,7 +34,7 @@ public class VentanaBuscar extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-maletín-68.png"))); // NOI18N
-        jLabel4.setText("Agregar Cartera");
+        jLabel4.setText("Buscar Cartera");
 
         jPanel4.setBackground(new java.awt.Color(57, 62, 111));
 

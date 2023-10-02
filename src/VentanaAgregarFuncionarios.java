@@ -200,25 +200,29 @@ public class VentanaAgregarFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
-            String nombreFuncionario = jTextField1.getText();
-            String cargoFuncionario = jTextField2.getText();
-            String idFuncionario = jTextField3.getText();
-            String nombreCartera = jTextField4.getText();
-            CarteraMinisterial cartera = sistema.buscarCartera(nombreCartera);
-            if(cargoFuncionario.equals("")){
-               cartera.agregarFuncionario(nombreFuncionario, idFuncionario); 
+            try {
+                String nombreFuncionario = jTextField1.getText();
+                String cargoFuncionario = jTextField2.getText();
+                String idFuncionario = jTextField3.getText();
+                String nombreCartera = jTextField4.getText();
+                CarteraMinisterial cartera = sistema.buscarCartera(nombreCartera);
+
+                if (nombreFuncionario.isEmpty() || idFuncionario.isEmpty()) {
+                    JOptionPane.showMessageDialog(this, "Error: El nombre y el ID del funcionario no pueden estar vacíos.", "Error", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    if (cargoFuncionario.isEmpty()) {
+                        cartera.agregarFuncionario(nombreFuncionario, idFuncionario);
+                    } else {
+                        Funcionario funcionario = new Funcionario(nombreFuncionario, cargoFuncionario, idFuncionario);
+                        cartera.agregarFuncionario(funcionario);
+                    }
+                    JOptionPane.showMessageDialog(this, "Funcionario agregado con éxito: " + nombreFuncionario, "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                }
+            } catch (CarteraNotFoundException ex) {
+                JOptionPane.showMessageDialog(this, "Error: Cartera no encontrada.", "Error", JOptionPane.ERROR_MESSAGE);
+            } catch (FuncionarioExistsException ex2) {
+                JOptionPane.showMessageDialog(this, "Error: Funcionario ya existe.", "Error", JOptionPane.ERROR_MESSAGE);
             }
-            else {
-                Funcionario funcionario = new Funcionario(nombreFuncionario, cargoFuncionario, idFuncionario);
-                cartera.agregarFuncionario(funcionario);
-            }
-            JOptionPane.showMessageDialog(this, "Funcionario agregado con éxito: " + nombreFuncionario, "Éxito", JOptionPane.INFORMATION_MESSAGE);
-        } catch (CarteraNotFoundException ex) {
-            JOptionPane.showMessageDialog(this, "Error: Cartera no encontrada.", "Error", JOptionPane.ERROR_MESSAGE);
-        }   catch (FuncionarioExistsException ex2) {
-            JOptionPane.showMessageDialog(this, "Error: Funcionario ya existe.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

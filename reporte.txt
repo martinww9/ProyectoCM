@@ -34,7 +34,6 @@ Hacienda: 6
 Agricultura: 6
 Mineria: 6
 Deporte: 6
-TestCartera: 0
 
 Cartera con más Funcionarios:
 -----------------------------
@@ -42,7 +41,7 @@ Cultura (6 funcionarios)
 
 Cartera con menos Funcionarios:
 --------------------------------
-TestCartera (0 funcionarios)
+Cultura (6 funcionarios)
 
 Lista de Carteras Ministeriales:
 --------------------------------
@@ -90,9 +89,6 @@ Encargado: Ana Gonzalez
 
 Cartera: Deporte
 Encargado: Juan Ramirez
-
-Cartera: TestCartera
-Encargado: TestEncargado
 
 
 Lista de Funcionarios por Cartera:
@@ -472,4 +468,3 @@ Nombre: Juan Ramirez
 Cargo: Ministro
 ID: 01234567-2
 
-Cartera: TestCartera

@@ -169,18 +169,23 @@ public class VentanaAgregar extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
-            String nombreCartera = txtNombreCartera1.getText();
-            String encargado = txtEncargado1.getText();
-            CarteraMinisterial nuevaCartera = new CarteraMinisterial(nombreCartera, encargado);
-            if("".equals(encargado)){
-                sistema.agregarCartera(nombreCartera);
+                String nombreCartera = txtNombreCartera1.getText();
+                String encargado = txtEncargado1.getText();
+
+                if (nombreCartera.isEmpty()) {
+                    JOptionPane.showMessageDialog(this, "Error: El nombre de la cartera no puede estar vacío.", "Error", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    CarteraMinisterial nuevaCartera = new CarteraMinisterial(nombreCartera, encargado);
+                    if ("".equals(encargado)) {
+                        sistema.agregarCartera(nombreCartera);
+                    } else {
+                        sistema.agregarCartera(nuevaCartera);
+                    }
+                    JOptionPane.showMessageDialog(this, "Cartera agregada con éxito: " + nuevaCartera.getNombre(), "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                }
+            } catch (CarteraExistsException ex) {
+                JOptionPane.showMessageDialog(this, "Error: Cartera ya existe.", "Error", JOptionPane.ERROR_MESSAGE);
             }
-            else
-            sistema.agregarCartera(nuevaCartera);
-            JOptionPane.showMessageDialog(this, "Cartera agregada con éxito: " + nuevaCartera.getNombre(), "Éxito", JOptionPane.INFORMATION_MESSAGE);
-        } catch (CarteraExistsException ex) {
-            JOptionPane.showMessageDialog(this, "Error: Cartera ya existe.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
